@@ -20,11 +20,11 @@ UBOOT_EXTLINUX_DEVICEFLAG_nor-nand-4-256 = "${CUBEMX_DT_FILE_BASE}"
 ############################################################################################
 # Define overrides for CUBEMX labels
 UBOOT_EXTLINUX_FDT_cubemx-sdcard = "/${CUBEMX_DTB}.dtb"
-UBOOT_EXTLINUX_ROOT_cubemx-sdcard = "${EXTLINUX_ROOT_SDCARD}"
+UBOOT_EXTLINUX_ROOT_cubemx-sdcard = "${@bb.utils.contains('BOOTSCHEME_LABELS', 'optee', '${EXTLINUX_ROOT_SDCARD_OPTEE}', '${EXTLINUX_ROOT_SDCARD}', d)}"
 
 # Configs below only available with EVAL board
 UBOOT_EXTLINUX_FDT_cubemx-emmc = "/${CUBEMX_DTB}.dtb"
-UBOOT_EXTLINUX_ROOT_cubemx-emmc = "${EXTLINUX_ROOT_EMMC}"
+UBOOT_EXTLINUX_ROOT_cubemx-emmc = "${@bb.utils.contains('BOOTSCHEME_LABELS', 'optee', '${EXTLINUX_ROOT_EMMC_OPTEE}', '${EXTLINUX_ROOT_EMMC}', d)}"
 
 UBOOT_EXTLINUX_FDT_cubemx-nand-4-256 = "/${CUBEMX_DTB}.dtb"
 UBOOT_EXTLINUX_ROOT_cubemx-nand-4-256 = "${EXTLINUX_ROOT_NAND}"
