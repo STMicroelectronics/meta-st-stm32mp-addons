@@ -29,5 +29,8 @@ FLASHLAYOUT_CONFIG_LABELS ?= "sdcard"
 
 # Define the original board devicetree
 #CUBEMX_DT_FILE_BASE ?= "stm32mp157a-dk1"
-#CUBEMX_DT_FILE_BASE ?= "stm32mp157c-dk2"
-CUBEMX_DT_FILE_BASE ?= "stm32mp157c-ev1"
+CUBEMX_DT_FILE_BASE ?= "stm32mp157c-dk2"
+#CUBEMX_DT_FILE_BASE ?= "stm32mp157c-ev1"
+
+# Set configuration for extlinux configuration
+UBOOT_EXTLINUX_CONFIGURE_FILES_append = " ${STM32MP_MX_BASE}/conf/machine/include/stm32mp1-mx-config.inc:True "

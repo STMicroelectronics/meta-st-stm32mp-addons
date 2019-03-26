@@ -1,6 +1,10 @@
 # =========================================================================
 # EXTLINUX is dynamic according to FLASHLAYOUT CONFIG set
 # =========================================================================
+
+# Set configuration file to monitor
+UBOOT_EXTLINUX_CONFIGURE_FILES_append = " ${STM32MP_MX_BASE}/conf/machine/include/stm32mp1-mx-extlinux-config.inc:True "
+
 # Configure only original CubeMX machine for sdcard in order to add specific
 # CubeMX label(s) to this default configuration
 UBOOT_EXTLINUX_DEVICEFLAG_sdcard = "${CUBEMX_DT_FILE_BASE}"
