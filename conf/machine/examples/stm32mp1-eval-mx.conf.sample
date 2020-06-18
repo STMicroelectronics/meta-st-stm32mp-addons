@@ -1,6 +1,6 @@
 #@TYPE: Machine
-#@NAME: stm32mp1-mx
-#@DESCRIPTION: Configuration for STM32CubeMX generated project
+#@NAME: stm32mp1-eval-mx
+#@DESCRIPTION: [STM32CubeMX-EXAMPLE] STM32MP157C-EV1 board ONLY with Trusted boot and SDcard support
 #@NEEDED_BSPLAYERS: layers/meta-openembedded/meta-oe layers/meta-openembedded/meta-python
 
 ###########################################################################
@@ -68,6 +68,7 @@ CUBEMX_DTB_PATH_UBOOT   = "u-boot"
 CUBEMX_DTB_PATH_LINUX   = "kernel"
 CUBEMX_DTB_PATH_OPTEEOS = "optee-os"
 
+
 ###########################################################################
 #
 # User machine customization sections
@@ -76,13 +77,13 @@ CUBEMX_DTB_PATH_OPTEEOS = "optee-os"
 
 # Boot Scheme
 # =========================================================================
-#BOOTSCHEME_LABELS += "trusted"
+BOOTSCHEME_LABELS += "trusted"
 #BOOTSCHEME_LABELS += "optee"
 
 # Boot Device Choice
 # =========================================================================
 # Define the boot device supported
-#BOOTDEVICE_LABELS += "sdcard"
+BOOTDEVICE_LABELS += "sdcard"
 #BOOTDEVICE_LABELS += "emmc"
 #BOOTDEVICE_LABELS += "nand-4-256"
 #BOOTDEVICE_LABELS += "nor-sdcard"
@@ -96,7 +97,8 @@ CUBEMX_DTB_PATH_OPTEEOS = "optee-os"
 # Specific firmwares and kernel modules configuration
 # =========================================================================
 # Set the list of kernel module to be auto-loaded during boot
-#KERNEL_MODULE_AUTOLOAD += ""
+#   NOTE    'goodix' module is specific to EVAL board (touchscreen module)
+KERNEL_MODULE_AUTOLOAD += "goodix"
 
 # Set Bluetooth related package list needed when 'bluetooth' feature is enabled
 #BLUETOOTH_LIST += ""
@@ -107,5 +109,5 @@ CUBEMX_DTB_PATH_OPTEEOS = "optee-os"
 # CubeMX Project Config
 # =========================================================================
 # Assign CubeMX Board devicetree and project path name
-#CUBEMX_DTB = "stm32mp157c-my-demo"
-#CUBEMX_PROJECT = "mx/STM32MP157C-EV1/my-demo/DeviceTree/my-demo"
+CUBEMX_DTB = "stm32mp157c-my-demo-mx"
+CUBEMX_PROJECT = "mx/STM32MP157C-EV1/my-demo/DeviceTree/my-demo"

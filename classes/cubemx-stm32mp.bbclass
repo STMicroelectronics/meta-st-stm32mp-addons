@@ -2,45 +2,85 @@
 # User can configure recipe file so that extra device tree files provided by
 # CubeMX can be integrated in original source code (and so get compiled)
 
+# Configure generation of device tree binary with CubeMX output files
+ENABLE_CUBEMX_DTB ??= "1"
+
 # CubeMX device tree file name
 CUBEMX_DTB ??= ""
-# Relative path (from mx folder) including project name for CubeMX device tree file location
+# Path to CubeMX project generated device tree files
 CUBEMX_PROJECT ??= ""
-# Absolute path for CubeMX device tree file location
+# Path to specific CubeMX device tree file (*.dts file) toi build
 CUBEMX_DTB_PATH ??= ""
 # Component path to copy CubeMX device tree file
 CUBEMX_DTB_SRC_PATH ??= ""
 
-CUBEMX_DTB_FILE_ORIGIN = "${CUBEMX_DTB_PATH}/${CUBEMX_DTB}.dts"
+# Internal class variable to manage CubeMX file location:
+#   CUBEMX_PROJECT_ABS
+#       Absolute path to CubeMX project generated device tree files, initialized
+#       thanks to BBPATH
+#   CUBEMX_DTB_PATH_FULL
+#       Absolute path to CubeMX device tree file
+CUBEMX_PROJECT_ABS = ""
+CUBEMX_DTB_PATH_FULL = "${CUBEMX_PROJECT_ABS}/${CUBEMX_DTB_PATH}"
 
 # Append to CONFIGURE_FILES var the CubeMX device tree file to make sure that
 # any device tree file update implies new compilation
-CONFIGURE_FILES += "${@' '.join(map(str, ('${CUBEMX_DTB_PATH}'+'/'+f for f in os.listdir('${CUBEMX_DTB_PATH}')))) if os.path.isdir(d.getVar('CUBEMX_DTB_PATH')) else ''}"
+CONFIGURE_FILES += "${@' '.join(map(str, ('${CUBEMX_DTB_PATH_FULL}'+'/'+f for f in os.listdir('${CUBEMX_DTB_PATH_FULL}')))) if os.path.isdir(d.getVar('CUBEMX_DTB_PATH_FULL')) else ''}"
 
 # Append to EXTERNALSRC_SYMLINKS var the CubeMX device tree config to manage
 # symlink creation through externalsrc class
-EXTERNALSRC_SYMLINKS += "${@' '.join(map(str, ('${CUBEMX_DTB_SRC_PATH}'+'/'+f+':'+'${CUBEMX_DTB_PATH}'+'/'+f for f in os.listdir('${CUBEMX_DTB_PATH}')))) if os.path.isdir(d.getVar('CUBEMX_DTB_PATH')) else ''}"
+EXTERNALSRC_SYMLINKS += "${@' '.join(map(str, ('${CUBEMX_DTB_SRC_PATH}'+'/'+f+':'+'${CUBEMX_DTB_PATH_FULL}'+'/'+f for f in os.listdir('${CUBEMX_DTB_PATH_FULL}')))) if os.path.isdir(d.getVar('CUBEMX_DTB_PATH_FULL')) else ''}"
 
 # In order to take care of any change in CUBEMX_DTB file when user has not set
 # recipe source code management through devtool, we should add the same extra
 # file checksums for the 'do_configure' task than the one done in externalsrc
 # class
 python () {
-    cubemxdtb = d.getVar('CUBEMX_DTB')
-    if cubemxdtb:
-        # Manage warning if needed
-        d.prependVarFlag('do_compile', 'prefuncs', "cubemx_compile_prefunc ")
-        # Append specific actions when not under externalscr class management
-        externalsrc = d.getVar('EXTERNALSRC')
-        if not externalsrc:
-            d.prependVarFlag('do_configure', 'prefuncs', "externalsrc_configure_prefunc ")
-            d.setVarFlag('do_configure', 'file-checksums', '${@srctree_configure_hash_files(d)}')
+    if d.getVar('ENABLE_CUBEMX_DTB') == "1":
+        cubemx_project = d.getVar('CUBEMX_PROJECT')
+        cubemx_dtb = d.getVar('CUBEMX_DTB')
+        # Make sure user has configured CubeMX machine properly
+        if cubemx_project == "":
+            raise bb.parse.SkipRecipe('\n[cubemx-stm32mp] CUBEMX_PROJECT var is empty. Please initalize it on your %s CubeMX machine configuration.' % d.getVar("MACHINE"))
+        if cubemx_dtb == "":
+            raise bb.parse.SkipRecipe('\n[cubemx-stm32mp] CUBEMX_DTB var is empty. Please initalize it on your %s CubeMX machine configuration.' % d.getVar("MACHINE"))
+        # MAke sure CubeMX files are available
+        found, cubemx_project_dir = cubemx_search(cubemx_project, d)
+        if found:
+            bb.debug(1, "Set CUBEMX_PROJECT_ABS to '%s' path." % cubemx_project_dir)
+            d.setVar('CUBEMX_PROJECT_ABS', cubemx_project_dir)
+            d.prependVarFlag('do_compile', 'prefuncs', "check_cubemxdtb_exist ")
+            # Append specific actions when not under externalscr class management
+            externalsrc = d.getVar('EXTERNALSRC')
+            if not externalsrc:
+                d.prependVarFlag('do_configure', 'prefuncs', "externalsrc_configure_prefunc ")
+                d.setVarFlag('do_configure', 'file-checksums', '${@srctree_configure_hash_files(d)}')
+        else:
+            bb.fatal('\n[cubemx-stm32mp] Not able to find "%s" path from current BBPATH var: %s.' % (cubemx_project, d.getVar("BBPATH").split(":")))
+    else:
+        # Use default device tree from original component source code
+        d.prependVarFlag('do_compile', 'prefuncs', "warn_cubemxdtb ")
 }
 
-python cubemx_compile_prefunc() {
-    # Alert user in case CubeMX device tree file is not available
-    if not os.path.exists(d.getVar('CUBEMX_DTB_FILE_ORIGIN')):
-        bb.warn('File %s not found: compilation will be done using default %s devicetree.' % (d.getVar('CUBEMX_DTB_FILE_ORIGIN'),d.getVar('PN')))
+def cubemx_search(dirs, d):
+    search_path = d.getVar("BBPATH").split(":")
+    for dir in dirs.split():
+        for p in search_path:
+            dir_path = os.path.join(p, dir)
+            if os.path.isdir(dir_path):
+                return (True, dir_path)
+    return (False, "")
+
+
+python warn_cubemxdtb() {
+    bb.warn('Use of CubeMX DTB is disabled for %s : compilation will be done using default %s device tree.' % (d.getVar('PN'), d.getVar('CUBEMX_DTB')))
+}
+
+python check_cubemxdtb_exist() {
+    cubemx_dts_file = os.path.join(d.getVar('CUBEMX_DTB_PATH_FULL'), d.getVar('CUBEMX_DTB') + '.dts')
+    # Abort compilation and alert user in case CubeMX device tree file is not available
+    if not os.path.exists(cubemx_dts_file):
+        bb.fatal('File %s not found: compilation aborted for %s device tree.' % (cubemx_dts_file, d.getVar('PN')))
 }
 
 # =========================================================================
