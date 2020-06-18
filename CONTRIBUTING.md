@@ -23,7 +23,7 @@ Please note that:
 __How to proceed__
 
 * We recommend to fork the project in your GitHub account to further develop your contribution. Please use the latest commit version.
-* Please, submit one Pull Request for one new feature or proposal. This will ease the analysis and final merge if accepted. 
+* Please, submit one Pull Request for one new feature or proposal. This will ease the analysis and final merge if accepted.
 
 __Note__
 
