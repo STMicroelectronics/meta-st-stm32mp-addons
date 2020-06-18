@@ -1,5 +1,4 @@
 PROJECTS_LIST_stm32mpcommonmx = " \
-${@bb.utils.contains('CUBEMX_BOARD_REFERENCE', 'stm32mp157c-ev1', 'STM32MP157C-EV1/Applications/OpenAMP/OpenAMP_TTY_echo', '', d)} \
-${@bb.utils.contains('CUBEMX_BOARD_REFERENCE', 'stm32mp157c-dk2', 'STM32MP157C-DK2/Applications/OpenAMP/OpenAMP_TTY_echo', '', d)} \
-${@bb.utils.contains('CUBEMX_BOARD_REFERENCE', 'stm32mp157a-dk1', 'STM32MP157C-DK2/Applications/OpenAMP/OpenAMP_TTY_echo', '', d)} \
+${@bb.utils.contains('PROJECTS_LIST_EV1', 'STM32MP157C-EV1/Applications/OpenAMP/OpenAMP_TTY_echo', 'STM32MP157C-EV1/Applications/OpenAMP/OpenAMP_TTY_echo', '', d)} \
+${@bb.utils.contains('PROJECTS_LIST_DK2', 'STM32MP157C-DK2/Applications/OpenAMP/OpenAMP_TTY_echo', 'STM32MP157C-DK2/Applications/OpenAMP/OpenAMP_TTY_echo', '', d)} \
 "
