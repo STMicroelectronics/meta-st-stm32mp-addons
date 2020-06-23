@@ -73,6 +73,8 @@ CUBEMX_DTB_PATH_OPTEEOS = "optee-os"
 # =========================================================================
 BOOTSCHEME_LABELS += "trusted"
 #BOOTSCHEME_LABELS += "optee"
+# WORKAROUND to generate U-BOOT SPL for DDR Tuning tools usage
+UBOOT_CONFIG += "basic"
 
 # Boot Device Choice
 # =========================================================================
