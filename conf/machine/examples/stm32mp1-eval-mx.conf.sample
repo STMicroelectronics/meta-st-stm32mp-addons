@@ -62,14 +62,6 @@ FLASHLAYOUT_TYPE_LABELS_extensible = "${CUBEMX_DTB}"
 # =========================================================================
 ENABLE_CUBEMX_DTB ?= "1"
 
-# Set specific subdir path by components for each device tree file location
-# within CUBEMX_PROJECT project folder
-CUBEMX_DTB_PATH_TFA     = "tf-a"
-CUBEMX_DTB_PATH_TFA_SB  = "tf-a"
-CUBEMX_DTB_PATH_UBOOT   = "u-boot"
-CUBEMX_DTB_PATH_LINUX   = "kernel"
-CUBEMX_DTB_PATH_OPTEEOS = "optee-os"
-
 
 ###########################################################################
 #
