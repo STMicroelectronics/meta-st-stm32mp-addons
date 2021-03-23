@@ -1,6 +1,6 @@
 #@TYPE: Machine
-#@NAME: stm32mp1-mx
-#@DESCRIPTION: Configuration for STM32CubeMX generated project
+#@NAME: stm32mp15-disco-mx
+#@DESCRIPTION: [STM32CubeMX-EXAMPLE] STM32MP157C-DK2 board ONLY with Trusted boot and SDcard support
 #@NEEDED_BSPLAYERS: layers/meta-openembedded/meta-oe layers/meta-openembedded/meta-python
 
 ###########################################################################
@@ -13,7 +13,8 @@ include conf/machine/include/st-machine-common-stm32mp.inc
 include conf/machine/include/st-machine-providers-stm32mp.inc
 
 # Define specific common machine name
-MACHINEOVERRIDES .= ":stm32mpcommonmx"
+MACHINEOVERRIDES .= ":stm32mpcommonmx:stm32mp15commonmx"
+MACHINEOVERRIDES .= ":stm32mp1common:stm32mp15common"
 
 # =========================================================================
 # Chip architecture
@@ -38,18 +39,12 @@ MACHINE_FEATURES += "m4copro"
 # Device Storage
 # =========================================================================
 # Enable the board device storage support with CUBEMX_DTB according to BOOTDEVICE_LABELS
-DEVICE_BOARD_ENABLE_NAND    += "${@bb.utils.contains('BOOTDEVICE_LABELS', 'nand-4-256', '${CUBEMX_DTB}', '', d)}"
-DEVICE_BOARD_ENABLE_NOR     += "${@bb.utils.contains('BOOTDEVICE_LABELS', 'nor-sdcard' , '${CUBEMX_DTB}', '', d)}"
-DEVICE_BOARD_ENABLE_EMMC    += "${@bb.utils.contains('BOOTDEVICE_LABELS', 'emmc', '${CUBEMX_DTB}', '', d)}"
 DEVICE_BOARD_ENABLE_SDCARD  += "${@bb.utils.contains('BOOTDEVICE_LABELS', 'sdcard', '${CUBEMX_DTB}', '', d)}"
 
 # =========================================================================
 # Flashlayout
 # =========================================================================
 # Set the FLASHLAYOUT_TYPE_LABELS to CUBEMX_DTB according to BOOTDEVICE_LABELS
-FLASHLAYOUT_TYPE_LABELS_emmc        = "${@bb.utils.contains('BOOTDEVICE_LABELS', 'emmc', '${CUBEMX_DTB}', '', d)}"
-FLASHLAYOUT_TYPE_LABELS_nand-4-256  = "${@bb.utils.contains('BOOTDEVICE_LABELS', 'nand-4-256', '${CUBEMX_DTB}', '', d)}"
-FLASHLAYOUT_TYPE_LABELS_nor-sdcard  = "${@bb.utils.contains('BOOTDEVICE_LABELS', 'nor-sdcard' , '${CUBEMX_DTB}', '', d)}"
 FLASHLAYOUT_TYPE_LABELS_sdcard      = "${@bb.utils.contains('BOOTDEVICE_LABELS', 'sdcard', '${CUBEMX_DTB}', '', d)}"
 
 # Specific settings for 'extensible' and 'deleteall' configurations
@@ -62,6 +57,7 @@ FLASHLAYOUT_TYPE_LABELS_extensible = "${CUBEMX_DTB}"
 # =========================================================================
 ENABLE_CUBEMX_DTB ?= "1"
 
+
 ###########################################################################
 #
 # User machine customization sections
@@ -70,39 +66,37 @@ ENABLE_CUBEMX_DTB ?= "1"
 
 # Boot Scheme
 # =========================================================================
-#BOOTSCHEME_LABELS += "trusted"
+BOOTSCHEME_LABELS += "trusted"
 #BOOTSCHEME_LABELS += "optee"
-# WORKAROUND to generate U-BOOT SPL for DDR Tuning tools usage
-UBOOT_CONFIG += "basic"
-
 
 # Boot Device Choice
 # =========================================================================
 # Define the boot device supported
-#BOOTDEVICE_LABELS += "sdcard"
-#BOOTDEVICE_LABELS += "emmc"
-#BOOTDEVICE_LABELS += "nand-4-256"
-#BOOTDEVICE_LABELS += "nor-sdcard"
+BOOTDEVICE_LABELS += "sdcard"
 
 # Support Feature Choice
 # =========================================================================
 # Define the features to enable on board
-#MACHINE_FEATURES += "bluetooth"
-#MACHINE_FEATURES += "wifi"
+MACHINE_FEATURES += "bluetooth"
+MACHINE_FEATURES += "wifi"
 
 # Specific firmwares and kernel modules configuration
 # =========================================================================
 # Set the list of kernel module to be auto-loaded during boot
-#KERNEL_MODULE_AUTOLOAD += ""
+KERNEL_MODULE_AUTOLOAD += ""
 
 # Set Bluetooth related package list needed when 'bluetooth' feature is enabled
-#BLUETOOTH_LIST += ""
+#   NOTE    'linux-firmware-bluetooth-bcm4343' firmware is specific to BT/WIFI
+#           combo used on DISCO boards"
+BLUETOOTH_LIST += "linux-firmware-bluetooth-bcm4343"
 
 # Set Wifi related package list needed when 'wifi' feature is enabled
-#WIFI_LIST += ""
+#   NOTE    'linux-firmware-bcm43430' firmware is specific to BT/WIFI combo used
+#           on DISCO boards
+WIFI_LIST += "linux-firmware-bcm43430"
 
 # CubeMX Project Config
 # =========================================================================
 # Assign CubeMX Board devicetree and project path name
-#CUBEMX_DTB = "stm32mp157c-my-demo"
-#CUBEMX_PROJECT = "mx/STM32MP157C-EV1/my-demo/DeviceTree/my-demo"
+CUBEMX_DTB = "stm32mp157c-my-demo-mx"
+CUBEMX_PROJECT = "mx/STM32MP157C-DK2/my-demo/DeviceTree/my-demo"
