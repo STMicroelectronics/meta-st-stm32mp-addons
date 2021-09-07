@@ -106,3 +106,12 @@ KERNEL_MODULE_AUTOLOAD += "goodix"
 # Assign CubeMX Board devicetree and project path name
 CUBEMX_DTB = "stm32mp157c-my-demo-mx"
 CUBEMX_PROJECT = "mx/STM32MP157C-EV1/my-demo/DeviceTree/my-demo"
+
+# Indicate which STM32MP package are used: 'A', 'C', 'D' or 'F'
+#CUBEMX_SOC_PACKAGE = "C"
+
+# Indicate the size of DDR available on BOARD: 512 or 1024 (size in MB unit)
+#CUBEMX_BOARD_DDR_SIZE = "1024"
+
+# Indicate if you like to disable the DVFS which are activated by default
+#CUBEMX_SOC_DVFS_OFF = "0"
