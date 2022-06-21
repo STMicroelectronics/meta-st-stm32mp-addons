@@ -1,6 +1,6 @@
 #@TYPE: Machine
-#@NAME: stm32mp15-disco-mx
-#@DESCRIPTION: [STM32CubeMX-EXAMPLE] STM32MP157C-DK2 board ONLY with Trusted boot and SDcard support
+#@NAME: stm32mp13-disco-mx
+#@DESCRIPTION: [STM32CubeMX-EXAMPLE] STM32MP135F-DK board ONLY with Optee boot and SDcard support
 #@NEEDED_BSPLAYERS: layers/meta-openembedded/meta-oe layers/meta-openembedded/meta-python
 
 ###########################################################################
@@ -13,8 +13,8 @@ include conf/machine/include/st-machine-common-stm32mp.inc
 include conf/machine/include/st-machine-providers-stm32mp.inc
 
 # Define specific common machine name
-MACHINEOVERRIDES .= ":stm32mpcommonmx:stm32mp15commonmx"
-MACHINEOVERRIDES .= ":stm32mp1common:stm32mp15common"
+MACHINEOVERRIDES .= ":stm32mpcommonmx:stm32mp13commonmx"
+MACHINEOVERRIDES .= ":stm32mp1common:stm32mp13common"
 
 # =========================================================================
 # Chip architecture
@@ -32,8 +32,7 @@ STM32MP_DEVICETREE = "${CUBEMX_DTB}"
 # =========================================================================
 MACHINE_FEATURES += "splashscreen"
 MACHINE_FEATURES += "watchdog"
-MACHINE_FEATURES += "${@'gpu' if d.getVar('ACCEPT_EULA_'+d.getVar('MACHINE')) == '1' else ''}"
-MACHINE_FEATURES += "m4copro"
+MACHINE_FEATURES += "nosmp"
 
 # =========================================================================
 # Device Storage
@@ -66,8 +65,7 @@ ENABLE_CUBEMX_DTB ?= "1"
 
 # Boot Scheme
 # =========================================================================
-BOOTSCHEME_LABELS += "trusted"
-#BOOTSCHEME_LABELS += "optee"
+BOOTSCHEME_LABELS += "optee"
 
 # Boot Device Choice
 # =========================================================================
@@ -79,6 +77,7 @@ BOOTDEVICE_LABELS += "sdcard"
 # Define the features to enable on board
 MACHINE_FEATURES += "bluetooth"
 MACHINE_FEATURES += "wifi"
+MACHINE_FEATURES += "usbg0"
 
 # Specific firmwares and kernel modules configuration
 # =========================================================================
@@ -98,14 +97,14 @@ WIFI_LIST += "linux-firmware-bcm43430"
 # CubeMX Project Config
 # =========================================================================
 # Assign CubeMX Board devicetree and project path name
-CUBEMX_DTB = "stm32mp157c-my-demo-mx"
-CUBEMX_PROJECT = "mx/STM32MP157C-DK2/my-demo/DeviceTree/my-demo"
+CUBEMX_DTB = "stm32mp135f-my-demo-mx"
+CUBEMX_PROJECT = "mx/STM32MP135F-DK/my-demo/DeviceTree/my-demo"
 
 # Indicate which STM32MP package are used: 'A', 'C', 'D' or 'F'
-#CUBEMX_SOC_PACKAGE = "C"
+CUBEMX_SOC_PACKAGE = "F"
 
 # Indicate the size of DDR available on BOARD: 512 or 1024 (size in MB unit)
-#CUBEMX_BOARD_DDR_SIZE = "512"
+CUBEMX_BOARD_DDR_SIZE = "512"
 
 # Indicate if you like to disable the DVFS which are activated by default
-#CUBEMX_SOC_DVFS_OFF = "0"
+CUBEMX_SOC_DVFS_OFF = "0"

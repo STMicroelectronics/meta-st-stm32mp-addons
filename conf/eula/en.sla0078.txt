@@ -1,0 +1,607 @@
+SLA0078 Rev2/February 2019
+Software license agreement
+
+LIMITED LICENSE AGREEMENT FOR ST MATERIALS EVALUATION
+
+IMPORTANT-READ CAREFULLY:
+
+This Limited License Agreement for ST Materials Evaluation (“LLA”) is a legally binding contract between you, on behalf of either yourself individually or the single entity by which you are employed (referred to in this LLA as "You" or “Licensee”) and STMicroelectronics International NV, a company incorporated under the laws of the Netherlands acting for the purpose of this LLA through its Swiss branch located at 39, Chemin du Champ des Filles, 1228 Plan-les-Ouates, Geneva, Switzerland (hereinafter “ST”).
+
+THE LICENSED MATERIALS ARE LICENSED TO YOU ON THE CONDITION THAT YOU ACCEPT ALL THE TERMS AND CONDITIONS OF THIS LLA. BY CLICKING ON THE "I ACCEPT" BUTTON OR BY INSTALLING, COPYING, DOWNLOADING, ACCESSING OR OTHERWISE USING THE LICENSED MATERIALS, YOU AGREE TO BE BOUND BY THE TERMS AND CONDITIONS OF THIS LLA. IF YOU DO NOT AGREE WITH ANY TERM OR CONDITION OF THIS LLA, DO NOT INSTALL, ACCESS OR USE THE LICENSED MATERIALS.
+
+For purposes of this LLA:
+
+“Affiliates” shall mean any corporation, partnership, or other entity that, directly or indirectly, owns, is owned by, or is under common ownership with ST, for so long as such ownership exists. For the purposes of the foregoing, "own", "owned," or "ownership" shall mean ownership of more than fifty percent (50%) of the stock or other equity interests entitled to vote for the election of directors or an equivalent governing body. 
+
+“Licensed Materials” shall mean the software, hardware, media, information, Documentation, and/or other materials which accompany this LLA or are otherwise made available by ST and/or its Affiliates under this LLA, any supplements and updates of any of the foregoing, and any related items or information delivered or made available by ST after formation of this LLA if no separate agreement is entered into by ST and Licensee to govern such related items or information. 
+
+“Documentation” shall mean any comments, annotations, instructions, manuals, guides, and other written materials, whether in printed or electronic form, which accompany this LLA or are otherwise made available by ST and/or its Affiliates under this LLA.
+
+APPLICABLE TERMS AND CONDITIONS
+
+The Licensed Materials contains various components that may be subject to different terms and conditions. The applicable terms and conditions are as follows:
+
+(i) FOR LICENSED MATERIALS THAT CONSTITUTE OPEN SOURCE SOFTWARE: THE APPLICABLE OPEN SOURCE TERMS, WHICH ARE SET FORTH OR IDENTIFIED IN SOURCE CODE HEADER(S), TEXT FILE(S), OR OTHER DOCUMENTATION IN OR ACCOMPANYING THIS LLA OR THE LICENSED MATERIALS. “OPEN SOURCE TERMS” MEANS ANY OPEN SOURCE LICENSE THAT COMPLIES WITH THE OPEN SOURCE DEFINITION SPECIFIED AT WWW.OPENSOURCE.ORG AND ANY OTHER COMPARABLE OPEN SOURCE LICENSE SUCH AS FOR EXAMPLE GNU GENERAL PUBLIC LICENSE (GPL), ECLIPSE PUBLIC LICENSE (EPL), APACHE SOFTWARE LICENSE, BSD LICENSE AND MIT LICENSE. SUCH OPEN SOURCE SOFTWARE IS NOT SUBJECT TO THE TERMS OF THIS LLA TO THE EXTENT THE TERMS OF THIS LLA ARE IN CONFLICT WITH THE OPEN SOURCE TERMS APPLICABLE TO SUCH OPEN SOURCE SOFTWARE. EXCEPT FOR OPEN SOURCE SOFTWARE, YOU HAVE NO RIGHTS UNDER THIS LLA TO, AND MAY NOT UNDER ANY CIRCUMSTANCES USE ANY LICENSED MATERIALS IN ANY MANNER THAT WOULD, MAKE SUCH LICENSED MATERIALS SUBJECT TO ANY OPEN SOURCE TERMS. THESE ACTIONS INCLUDE BUT ARE NOT LIMITED TO COMBINING OPEN SOURCE SOFTWARE WITH THE LICENSED MATERIALS BY MEANS OF INCORPORATION OR LINKING OR OTHERWISE;
+
+YOU AGREE NOT TO INSTALL OR USE ANY LICENSED MATERIALS THAT CONSTITUTE OPEN SOURCE SOFTWARE. HOWEVER, THE PROHIBITION OF THE IMMEDIATELY PRECEDING SENTENCE SHALL NOT APPLY IF YOU READ AND COMPLY WITH THE OPEN SOURCE TERMS APPLICABLE TO THE OPEN SOURCE SOFTWARE.
+
+(ii) FOR LICENSED MATERIALS THAT CONSTITUTE THIRD PARTY COMPONENTS: THE APPLICABLE THIRD PARTY LICENSE TERMS, WHICH ARE SET FORTH OR IDENTIFIED IN SOURCE CODE HEADER(S), TEXT FILE(S), OR OTHER DOCUMENTATION IN OR ACCOMPANYING THIS LLA OR THE LICENSED MATERIALS (COLLECTIVELY, “THIRD PARTY TERMS”). SUCH THIRD PARTY COMPONENTS ARE NOT SUBJECT TO THE TERMS OF THIS LLA TO THE EXTENT THE  TERMS OF THIS LLA ARE IN CONFLICT WITH SUCH THIRD PARTY TERMS. LICENSEE ACKNOWLEDGES AND AGREES THAT THIS LLA DOES NOT CONVEY A LICENSE TO ANY INTELLECTUAL PROPERTY RIGHTS OF ANY THIRD PARTY AND THAT LICENSEE IS RESPONSIBLE FOR ANY FEES OR ROYALTIES PAYABLE TO ANY THIRD PARTY BASED ON ANY THIRD PARTY’S INTELLECTUAL PROPERTY RIGHTS OR BASED ON ANY THIRD PARTY'S INTERESTS IN ANY THIRD PARTY COMPONENTS;
+
+YOU AGREE NOT TO INSTALL OR USE ANY LICENSED MATERIALS THAT CONSTITUTE THIRD PARTY COMPONENTS. HOWEVER, THE PROHIBITION OF THE IMMEDIATELY PRECEDING SENTENCE SHALL BE SUSPENDED IF YOU READ AND COMPLY WITH THE THIRD PARTY TERMS APPLICABLE TO THE THIRD PARTY COMPONENTS, WHILE SUCH COMPLIANCE CONTINUES.
+
+(iii) FOR ALL OTHER SOFTWARE: THE TERMS AND CONDITIONS OF THIS LLA, WHETHER OR NOT THEY ARE SET FORTH OR IDENTIFIED IN SOURCE CODE HEADER(S), TEXT FILE(S), OR OTHER DOCUMENTATION IN OR ACCOMPANYING THIS LLA OR THE LICENSED MATERIALS.
+
+1. LIMITED LICENSE
+
+Subject to the terms and conditions of this LLA and any applicable Open Source Terms and Third Party Terms, ST hereby grants to You, during the term of this LLA, under intellectual property rights owned by ST, a worldwide, non-exclusive, nontransferable, royalty-free license, without the right to sublicense, to use internally the Licensed Materials solely and exclusively on or in combination with microcontrollers and microprocessors manufactured by or for ST (collectively “ST Chipsets”) for the Limited License Purpose only. “Limited License Purpose” shall mean the sole purpose of performing evaluation, simulation, testing, development, and demonstration (but not distribution, sale, license, or other commercialization) of Licensee’s software/hardware applications solely with ST Chipsets.
+
+To the extent the Licensed Materials are made available to You in source code and subject to the terms and conditions of this LLA and any applicable Open Source Terms and Third Party Terms, ST hereby grants to You, during the term of this LLA, under intellectual property rights owned by ST, a worldwide, non-exclusive, non transferable, royalty-free license, without the right to sublicense, to use, reproduce and modify (all internally) the source code form of the Licensed Materials and to compile internally such modified source code into new object code, for the Limited License Purpose only. 
+
+Subject to the terms and conditions of this LLA and any applicable Open Source Terms and Third Party Terms, ST hereby grants to You, during the term of this LLA, under intellectual property rights owned by ST, a worldwide, non-exclusive, nontransferable, royalty-free license, without the right to sublicense, to use internally and make internally a reasonable number of copies of the Documentation provided by ST under this LLA, solely to support the Limited License Purpose.
+
+You are authorized to have third party contractors exercise on Your behalf the license rights as set forth above, provided that (i) such contractors are obligated by written agreement with You to maintain the confidentiality of the Licensed Materials to at least the degree required of You under this LLA, (ii) You shall ensure such contractors comply with the terms of this LLA, (iii) You shall be liable for any breach by such contractors, and (iv) You shall indemnify and hold harmless ST and its Affiliates for any harm resulting from such contractor’s use of the Licensed Materials. 
+
+You acknowledge that the Licensed Materials have not been specifically designed to meet Your individual requirements and that You have all information necessary to evaluate whether the Licensed Materials meet Your requirements or not, and will be suitable for Your intended use or application. Therefore the Licensed Materials shall be deemed accepted upon delivery to Licensee. You shall use, at Your own risk, the Licensed Materials and any development that is obtained from such use. You acknowledge that ST and its Affiliates cannot in any way be held responsible for the consequences resulting from use of the Licensed Materials and any development made following such use of the Licensed Materials, and You shall indemnify and hold harmless ST and its Affiliates for any harm resulting from Your use of the Licensed Materials or Your software/hardware applications in any manner not permitted under this LLA.
+
+You acknowledge that You are receiving the Licensed Materials under a limited license and not as a purchaser of the Licensed Materials.
+
+2. RESTRICTIONS
+
+Unless otherwise expressly stipulated under Article 1, You shall not, and shall not permit any third party to: (i) copy, reproduce or duplicate the Licensed Materials; (ii) translate, modify, adapt, decompile, disassemble or reverse engineer and make derivative works of (any portion of) the Licensed Materials; (iii) rent, disclose, publish, sell, assign, lease, lend, sublicense, market, transfer, distribute or otherwise provide third parties access to (any portion of) the Licensed Materials for any purpose; (iv) attempt to derive the source code, algorithmic nature or structure of any object code portions of the Licensed Materials; (v) use the Licensed Materials to create any product that competes with the Licensed Materials or ST Chipsets; (vi) remove or circumvent any protection or other restrictive technology mechanism of the Licensed Materials or ST Chipsets; (vii) disclose the results of the Licensed Materials’ performance to any third party; or (viii) otherwise use any portion of the Licensed Materials in any manner not expressly authorized by this LLA.
+
+Other than the limited licenses expressly granted to You under Article 1 herein, no other rights or licenses are granted, or implied by estoppel or otherwise, under any intellectual property rights of ST and/or its Affiliates or any intellectual property of a third-party residing in the Licensed Materials or in any other confidential information furnished by ST and its Affiliates, including, without limitation, (i) for the combination of such Licensed Materials or other confidential information with one or more other items (including items acquired from ST and/or its Affiliates) even if such items have no substantial use other than as part of such combination (ii) with respect to any trademark, trade or brand name, domain name, corporate name of ST and/or Affiliates, or any other name or mark, or contraction abbreviation or simulation thereof, (iii) under any intellectual property rights covering any standard set by a standard setting body and any de facto standards.
+
+You may not use the Licensed Materials for commercial purposes nor sell, or otherwise transfer it for value. Commercial purposes include the use of the Licensed Materials as a standalone product or in a product, to be distributed, marketed or otherwise offered for sale or for rent.
+
+Notwithstanding any other terms of this LLA, You further acknowledge that the Licensed Materials are not specifically designed for use in safety critical applications such as life supporting devices or systems and nuclear, automotive or aerospace applications or environments. ST, its Affiliates, and/or its licensors expressly disclaim any responsibility for such usage which shall be made by You at your sole risks, even if ST, its Affiliates, and/or its licensors have been informed by You in writing of such usage. You acknowledge and agree that You shall be solely responsible for regulatory, safety and security related requirements concerning your own products and use of Licensed Materials in your products and related applications.
+
+You shall limit access and use of the Licensed Materials to You and those individuals employed by You who have a need to access the Licensed Materials for the Limited License Purpose. You agree that, (i) such individuals shall be obligated by written agreement with You to maintain the confidentiality of the Licensed Materials to at least the degree required of You under this LLA, (ii) You shall ensure such individuals comply with the terms of this LLA, (iii) You shall be liable for any breach by such individuals, and (iv) You shall indemnify and hold harmless ST and its Affiliates for any harm resulting from such individual’s use of the Licensed Materials. Except as expressly permitted under Article 1, or as otherwise expressly agreed in writing by ST, You shall not allow any third party to use the Licensed Materials.
+
+ST and its Affiliates have no obligation to provide You with maintenance, technical support or updates for the Licensed Materials.
+
+3. OWNERSHIP, COPYRIGHTS AND TRADEMARKS
+
+The Licensed Materials are and shall remain exclusively owned by ST, its Affiliates, and/or its licensors, whether or not specifically recognized or perfected under the laws of the country where the Licensed Materials originate or are used. You shall not take any action that jeopardizes ST’s, its Affiliates’, and/or its licensors' ownership of the Licensed Materials. You shall not acquire any rights in the Licensed Materials, except the limited rights specified in Article 1. 
+
+You shall ensure that all notices, including but not limited to all copyright and trademark notices of ST, its Affiliates, and its licensors are reproduced in any copy of the whole or any part of the Licensed Materials. You shall not remove, modify or alter any such notice from any part of the Licensed Materials.
+
+4. CONFIDENTIALITY
+
+Confidential information shall include (i) all information provided by ST or its Affiliates in relation to the Licensed Materials which (a) is designated as “confidential”, “proprietary” or with a similar legend, and (b) is by its own nature of a type which would reasonably be considered confidential and (ii) the Licensed Material (“Confidential Information”). You may only use the Confidential Information for the Limited License Purpose and shall protect the confidentiality of the Confidential Information by using the same degree of care, but not less than a reasonable degree of care, to prevent its unauthorized use, dissemination, or publication as You use to protect your own confidential information of like nature.
+
+You shall be liable towards ST for any damages incurred by ST or its Affiliates due to a failure by You or Your employees to comply with the provisions in this LLA. You shall immediately notify ST of any unauthorised use or disclosure of, or of any unauthorised access to, or of any theft or loss of, the Licensed Materials or Confidential Information or part thereof, which comes to Your notice.
+
+The confidentiality obligations shall not apply to Confidential Information, which can be shown by documentary evidence: (i) entered the public domain through no fault of the Licensee; or, (ii) was known to the Licensee prior to receipt from ST and its Affiliates; or, (iii) was disclosed to the Licensee by a third party having the right to disclose; or, (iv) was independently developed by the Licensee without use of the Licensed Materials or Confidential Information, the burden of proof of independence being on the Licensee.
+
+These confidentiality obligations shall survive any termination or expiration of the LLA for whatever cause.
+
+5. DISCLAIMER OF WARRANTY
+
+YOU ACKNOWLEDGE THAT THE LICENSED MATERIALS AND ANY AND ALL PARTS THEREOF ARE PROVIDED “AS IS”. ST AND ITS AFFILIATES MAKE NO REPRESENTATIONS OR WARRANTIES WITH RESPECT TO THE LICENSED MATERIALS AND OR PARTS THEREOF WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. SPECIFICALLY, WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, ST AND ITS AFFILIATES MAKE NO REPRESENTATION OR WARRANTY THAT (I) THE USE OF THE LICENSED MATERIALS AND OR PARTS THEREOF WILL BE UNINTERRUPTED OR ERROR FREE, OR (II) ANY USE OF THE LICENSED MATERIALS AND OR PARTS THEREOF, WHETHER OR NOT INTEGRATED INTO OTHER SOFTWARE OR EQUIPMENT, ARE FREE FROM INFRINGEMENT OF ANY THIRD PARTY INTELLECTUAL PROPERTY RIGHTS. IT SHALL BE YOUR SOLE RESPONSIBILITY TO MAKE SUCH DETERMINATION AS IS NECESSARY WITH RESPECT TO THE ACQUISITION OF LICENSES UNDER PATENTS AND OTHER INTELLECTUAL PROPERTY RIGHTS OF THIRD PARTIES. CONSEQUENTLY, ST AND ITS AFFILIATES DISCLAIM ANY LIABILITY IN CASE ANY USE BY YOU OR YOUR CONTRACTORS INFRINGES ANY THIRD PARTY’S INTELLECTUAL PROPERTY RIGHTS. FURTHERMORE ST AND ITS AFFILIATES HEREBY DISCLAIM ANY WARRANTY AND LIABILITY WHATSOEVER FOR ANY DEVELOPMENT CREATED BY OR FOR YOU OR YOUR CUSTOMERS.
+
+YOU ACKNOWLEDGE THAT YOU HAVE RELIED ON NO WARRANTIES OTHER THAN THE EXPRESS WARRANTIES IN THIS LLA AND THAT NO WARRANTIES ARE MADE BY ST OR ITS AFFILIATES OR GRANTED BY LAW WHENEVER IT IS PERMITTED BY LAW.
+
+6. COMPLIANCE
+
+You agree not to use the Licensed Materials in violation of any law, statute, ordinance or other regulation or any obligation by which You are bound. You agree to comply with all applicable laws and regulations regarding the use of the Licensed Materials. Specifically but without limiting the generality of the foregoing, You acknowledge that the Licensed Materials are subject to export controls restrictions and You agree to comply with the European export regulations and US similar regulations, and to obtain any necessary export license or other documentation prior to exportation or re-exportation of the Licensed Materials.
+
+Some Licensed Materials may (i) require licenses from third parties claiming intellectual property rights covering use or implementation of the Licensed Materials or (ii) be based on industry recognized standards or software programs published by industry recognized standards bodies and certain third parties may claim to own intellectual property rights that cover implementation or use of those standards. You agree that You will obtain any necessary licenses from such third parties prior to execution of the license rights granted by ST to You herein.
+
+7. DISCLAIMER OF DAMAGES
+
+IN NO EVENT SHALL ST AND ITS AFFILIATES BE LIABLE TO LICENSEE OR ANY THIRD PARTY FOR ANY INDIRECT, INCIDENTAL, PUNITIVE, SPECIAL OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST SAVINGS, LOSS OF BARGAIN OR OPPORTUNITY, PROFESSIONAL FEES OR EXPENSES, BUSINESS INTERRUPTION, LOST REVENUES OR SALES, DAMAGE TO PRODUCT OR EQUIPMENT OR TO FACILITIES, COSTS OF SUBSTITUTE PRODUCT, FACILITIES OR SERVICES, REWORK CHARGES, COSTS ASSOCIATED WITH DOWN TIME, LOSS OF GOODWILL, LOSS OF DATA OR FOR ANY DAMAGES COSTS OR EXPENSES ASSOCIATED WITH WARRANTY OR INTELLECTUAL PROPERTY INFRINGEMENT CLAIMS, WHETHER FORESEEABLE OR UNFORESEEABLE AND WHETHER OR NOT SUCH DAMAGES ARE BASED ON WARRANTY, CONTRACT OR ANY OTHER LEGAL THEORY, ARISING OUT OF OR IN CONNECTION WITH THIS LLA – EVEN IF LICENSEE HAS BEEN ADVISED, OR IS AWARE, OF THE POSSIBILITY OF SUCH DAMAGES. ST AND ITS AFFILIATES AGGREGATE AND CUMULATIVE LIABILITY TOWARDS LICENSEE UNDER THIS LLA SHALL NOT EXCEED 100 USD (ONE HUNDRED US DOLLARS). THE LIMITATIONS SET FORTH ABOVE IN THIS ARTICLE 7 SHALL ONLY APPLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.
+
+8. TERM AND TERMINATION
+
+This LLA shall be valid for a period that starts upon Your acceptance of the terms and conditions of this LLA and ends upon the earlier of two (2) years or ST’s making the Licensed Materials or a subsequent version of the Licensed Materials available for download via www.st.com. Licensee may terminate this LLA at any time by destroying all Licensed Materials and other Confidential Information or by returning those to ST. ST may terminate this LLA at any time if (i) You fail to comply with the terms and conditions of this LLA, (ii) You threaten or file litigation against ST or its Affiliates, (iii) ST or its Affiliates receive notice of any claim, suit or proceeding that alleges that the Licensed Materials or Your use of the Licensed Materials infringes any third-party intellectual property rights, or (iv) to the extent permitted by laws, a voluntary or involuntary petition in bankruptcy or winding up is filed against Licensee, any proceedings in insolvency or bankruptcy are instituted against Licensee, a trustee or receiver is appointed over Licensee, or any assignment is made for the benefit of creditors of Licensee.
+
+Upon termination or expiration, You shall delete, destroy, or return to ST all Licensed Materials in Your possession and You shall stop using the Licensed Materials for any purpose whatsoever. 
+
+Articles 2 to 10, inclusive, shall survive the termination or expiration of this LLA.
+
+9. MISCELLANEOUS
+
+If a court or agency of competent jurisdiction holds any term of this LLA invalid, illegal, or unenforceable for any reason, the remainder of this LLA shall be valid and enforceable and You and ST shall discuss in good faith a substitute, valid, enforceable provision which most nearly effects the parties intent in entering into this LLA. 
+
+The delay or failure by ST to enforce any provisions of this LLA or to exercise any right in respect thereto shall not be construed as constituting a waiver of any right of ST or obligation of Licensee.
+
+No agency, joint venture, partnership or other business organization shall be created or be construed as being created by reason of this LLA. You will not have the right or authority to, and shall not, assume or create any obligation of any nature whatsoever on behalf of ST and its Affiliates or bind ST and its Affiliates in any respect whatsoever. You and ST are independent parties. Nothing in this LLA shall be construed as making You an employee, agent or legal representative of ST.
+
+This LLA contains the entire and sole agreement between You and ST on the subject matter of this LLA, and supersedes all representations, undertakings and agreements previously made between You and ST and/or its Affiliates and shall prevail over the terms and conditions set forth in any document from You with respect to the subject matter of this LLA. Any amendment to this LLA shall be agreed in writing and be duly signed by You and ST and shall make clear reference to this LLA. 
+
+Licensee agrees that ST’s Affiliates are intended to be third party beneficiaries of this LLA.
+
+Licensee agrees that in the event of any breach of this LLA by Licensee or its contractors, the resulting harm to ST and its Affiliates would likely be of a nature that monetary damages would not provide an adequate remedy, and therefore, ST and its Affiliates shall be entitled to seek specific performance, injunction, and other equitable relief.
+
+10. APPLICABLE LAW
+
+This LLA is governed by the laws of Switzerland, without regard to its conflict of law rules. All disputes or questions arising out of or in connection with this LLA shall be finally settled by the competent courts of Geneva, Switzerland. Licensee hereby waives any objection to venue. Notwithstanding the aforesaid, nothing in this LLA shall prevent ST from seeking any interim or final injunctive or equitable relief by a court of competent jurisdiction.
+
+
+ANNEX 1: LIST OF SOFTWARE COMPONENTS (AND ASSOCIATED LICENSES) IN THE LICENSED MATERIALS
+
+< Component | Copyright | License >
+< --------- | ----------| ------- >
+< Drivers BSP Boards | STMicroelectronics | BSD-3-Clause >
+< Drivers BSP Components | STMicroelectronics | BSD-3-Clause >
+< CMSIS Core (from V5 included) | ARM Limited | Apache-2.0 >
+< CMSIS Core (prior V5) | ARM Limited | BSD-3-Clause >
+< CMSIS Device (based on CMSIS from V5 included) | ARM Limited, STMicroelectronics | Apache-2.0 >
+< CMSIS Device (based on CMSIS prior V5) | ARM Limited, STMicroelectronics | BSD-3-Clause >
+< Drivers HAL/LL | STMicroelectronics | BSD-3-Clause >
+< MW Audio (Processing) | STMicroelectronics | ST Proprietary >
+< MW USB | STMicroelectronics | ST Proprietary >
+< MW USB-PD (Type C) | STMicroelectronics | ST Proprietary >
+< MW STM32WPAN | STMicroelectronics | ST Proprietary >
+< MW FatFS | ChaN, STMicroelectronics | BSD-3-Clause >
+< MW FreeRTOS (from V10 included) | Amazon.com, Inc. or its affiliates; | MIT License >
+< MW FreeRTOS (prior V10)| Real Time Engineers Ltd. | see ANNEX 3 >
+< LibJPEG | Thomas G. Lane, Guido Vollbeding | see ANNEX 2 >
+< MW LwIP | Swedish Institute of Computer Science | BSD-3-Clause > 
+< MW mbedTLS | ARM Limited | Apache-2.0 >
+< OpenAMP | Mentor Graphics + Xilinx + Freescale | BSD-3-Clause >
+< trustedfirmware | ARM Limited, Wind River Systems, Inc., Linaro Limited, Laurence Lundblade, The Linux Foundation, IETF Trust and the persons identified as the document authors | BSD-3-Clause >
+< mbed-crypto | Arm Limited (or its affiliates) | Apache-2.0 >
+< LoRaWAN | Semtech, STMicroelectronics, Brian Gladman, Lander Casado, Philippas Tsigas | BSD-3-Clause >
+< SubGHz_Phy | Semtech, STMicroelectronics | BSD-3-Clause >
+< STemWin | STMicroelectronics and SEGGER Microcontroller GmbH & Co. KG | ST Proprietary >
+< TouchGFX | STMicroelectronics | ST Proprietary >
+< Audio PDM | STMicroelectronics | ST Proprietary >
+< Applications projects | STMicroelectronics | ST Proprietary >  
+< Demonstrations projects | STMicroelectronics | ST Proprietary >  
+< Example Projects | STMicroelectronics | BSD-3-Clause >
+< Utilities | STMicroelectronics | BSD-3-Clause >
+
+
+ANNEX 2: LIBJPEG LICENSE 
+
+LICENSE TERMS (ships as a part of the libjpeg package in the README file)
+=============
+
+1. We don't promise that this software works.  (But if you find any bugs,
+   please let us know!)
+2. You can use this software for whatever you want.  You don't have to pay us.
+3. You may not pretend that you wrote this software.  If you use it in a
+   program, you must acknowledge somewhere in your documentation that
+   you've used the IJG code.
+
+In legalese:
+
+The authors make NO WARRANTY or representation, either express or implied,
+with respect to this software, its quality, accuracy, merchantability, or
+fitness for a particular purpose.  This software is provided "AS IS", and you,
+its user, assume the entire risk as to its quality and accuracy.
+
+This software is copyright (C) 1991-2016, Thomas G. Lane, Guido Vollbeding.
+All Rights Reserved except as specified below.
+
+Permission is hereby granted to use, copy, modify, and distribute this
+software (or portions thereof) for any purpose, without fee, subject to these
+conditions:
+(1) If any part of the source code for this software is distributed, then this
+README file must be included, with this copyright and no-warranty notice
+unaltered; and any additions, deletions, or changes to the original files
+must be clearly indicated in accompanying documentation.
+(2) If only executable code is distributed, then the accompanying
+documentation must state that "this software is based in part on the work of
+the Independent JPEG Group".
+(3) Permission for use of this software is granted only if the user accepts
+full responsibility for any undesirable consequences; the authors accept
+NO LIABILITY for damages of any kind.
+
+These conditions apply to any software derived from or based on the IJG code,
+not just to the unmodified library.  If you use our work, you ought to
+acknowledge us.
+
+Permission is NOT granted for the use of any IJG author's name or company name
+in advertising or publicity relating to this software or products derived from
+it.  This software may be referred to only as "the Independent JPEG Group's
+software".
+
+We specifically permit and encourage the use of this software as the basis of
+commercial products, provided that all warranty or liability claims are
+assumed by the product vendor.
+
+
+ANNEX 3: FreeRTOS Modified GPL License (GPL V2 with exception)
+
+The FreeRTOS open source license covers the FreeRTOS source files,
+which are located in the /FreeRTOS/Source directory of the official FreeRTOS
+download.  It also covers most of the source files in the demo application
+projects, which are located in the /FreeRTOS/Demo directory of the official
+FreeRTOS download.  The demo projects may also include third party software that
+is not part of FreeRTOS and is licensed separately to FreeRTOS.  Examples of
+third party software includes header files provided by chip or tools vendors,
+linker scripts, peripheral drivers, etc.  All the software in subdirectories of
+the /FreeRTOS directory is either open source or distributed with permission,
+and is free for use.  For the avoidance of doubt, refer to the comments at the
+top of each source file.
+
+----------------------------------------------------------------------------
+
+NOTE: The modification to the GPL is included to allow you to distribute a
+combined work that includes FreeRTOS without being obliged to provide the source
+code for proprietary components.
+
+----------------------------------------------------------------------------
+
+Applying to FreeRTOS V8.2.3 up to the latest version, the FreeRTOS GPL Exception
+Text follows:
+
+Any FreeRTOS *source code*, whether modified or in it's original release form,
+or whether in whole or in part, can only be distributed by you under the terms
+of the GNU General Public License plus this exception.  An independent module is
+a module which is not derived from or based on FreeRTOS.
+
+Clause 1:
+
+Linking FreeRTOS with other modules is making a combined work based on FreeRTOS.
+Thus, the terms and conditions of the GNU General Public License V2 cover the
+whole combination.
+
+As a special exception, the copyright holders of FreeRTOS give you permission to
+link FreeRTOS with independent modules to produce a statically linked
+executable, regardless of the license terms of these independent modules, and to
+copy and distribute the resulting executable under terms of your choice,
+provided that you also meet, for each linked independent module, the terms and
+conditions of the license of that module.  An independent module is a module
+which is not derived from or based on FreeRTOS.
+
+Clause 2:
+
+FreeRTOS may not be used for any competitive or comparative purpose, including
+the publication of any form of run time or compile time metric, without the
+express permission of Real Time Engineers Ltd. (this is the norm within the
+industry and is intended to ensure information accuracy).
+
+
+
+--------------------------------------------------------------------
+
+
+
+The standard GPL V2 text:
+
+
+		    GNU GENERAL PUBLIC LICENSE
+		       Version 2, June 1991
+
+ Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+                       59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+			    Preamble
+
+  The licenses for most software are designed to take away your
+freedom to share and change it.  By contrast, the GNU General Public
+License is intended to guarantee your freedom to share and change free
+software--to make sure the software is free for all its users.  This
+General Public License applies to most of the Free Software
+Foundation's software and to any other program whose authors commit to
+using it.  (Some other Free Software Foundation software is covered by
+the GNU Library General Public License instead.)  You can apply it to
+your programs, too.
+
+  When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+this service if you wish), that you receive source code or can get it
+if you want it, that you can change the software or use pieces of it
+in new free programs; and that you know you can do these things.
+
+  To protect your rights, we need to make restrictions that forbid
+anyone to deny you these rights or to ask you to surrender the rights.
+These restrictions translate to certain responsibilities for you if you
+distribute copies of the software, or if you modify it.
+
+  For example, if you distribute copies of such a program, whether
+gratis or for a fee, you must give the recipients all the rights that
+you have.  You must make sure that they, too, receive or can get the
+source code.  And you must show them these terms so they know their
+rights.
+
+  We protect your rights with two steps: (1) copyright the software, and
+(2) offer you this license which gives you legal permission to copy,
+distribute and/or modify the software.
+
+  Also, for each author's protection and ours, we want to make certain
+that everyone understands that there is no warranty for this free
+software.  If the software is modified by someone else and passed on, we
+want its recipients to know that what they have is not the original, so
+that any problems introduced by others will not reflect on the original
+authors' reputations.
+
+  Finally, any free program is threatened constantly by software
+patents.  We wish to avoid the danger that redistributors of a free
+program will individually obtain patent licenses, in effect making the
+program proprietary.  To prevent this, we have made it clear that any
+patent must be licensed for everyone's free use or not licensed at all.
+
+  The precise terms and conditions for copying, distribution and
+modification follow.
+
+		    GNU GENERAL PUBLIC LICENSE
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+  0. This License applies to any program or other work which contains
+a notice placed by the copyright holder saying it may be distributed
+under the terms of this General Public License.  The "Program", below,
+refers to any such program or work, and a "work based on the Program"
+means either the Program or any derivative work under copyright law:
+that is to say, a work containing the Program or a portion of it,
+either verbatim or with modifications and/or translated into another
+language.  (Hereinafter, translation is included without limitation in
+the term "modification".)  Each licensee is addressed as "you".
+
+Activities other than copying, distribution and modification are not
+covered by this License; they are outside its scope.  The act of
+running the Program is not restricted, and the output from the Program
+is covered only if its contents constitute a work based on the
+Program (independent of having been made by running the Program).
+Whether that is true depends on what the Program does.
+
+  1. You may copy and distribute verbatim copies of the Program's
+source code as you receive it, in any medium, provided that you
+conspicuously and appropriately publish on each copy an appropriate
+copyright notice and disclaimer of warranty; keep intact all the
+notices that refer to this License and to the absence of any warranty;
+and give any other recipients of the Program a copy of this License
+along with the Program.
+
+You may charge a fee for the physical act of transferring a copy, and
+you may at your option offer warranty protection in exchange for a fee.
+
+  2. You may modify your copy or copies of the Program or any portion
+of it, thus forming a work based on the Program, and copy and
+distribute such modifications or work under the terms of Section 1
+above, provided that you also meet all of these conditions:
+
+    a) You must cause the modified files to carry prominent notices
+    stating that you changed the files and the date of any change.
+
+    b) You must cause any work that you distribute or publish, that in
+    whole or in part contains or is derived from the Program or any
+    part thereof, to be licensed as a whole at no charge to all third
+    parties under the terms of this License.
+
+    c) If the modified program normally reads commands interactively
+    when run, you must cause it, when started running for such
+    interactive use in the most ordinary way, to print or display an
+    announcement including an appropriate copyright notice and a
+    notice that there is no warranty (or else, saying that you provide
+    a warranty) and that users may redistribute the program under
+    these conditions, and telling the user how to view a copy of this
+    License.  (Exception: if the Program itself is interactive but
+    does not normally print such an announcement, your work based on
+    the Program is not required to print an announcement.)
+
+These requirements apply to the modified work as a whole.  If
+identifiable sections of that work are not derived from the Program,
+and can be reasonably considered independent and separate works in
+themselves, then this License, and its terms, do not apply to those
+sections when you distribute them as separate works.  But when you
+distribute the same sections as part of a whole which is a work based
+on the Program, the distribution of the whole must be on the terms of
+this License, whose permissions for other licensees extend to the
+entire whole, and thus to each and every part regardless of who wrote it.
+
+Thus, it is not the intent of this section to claim rights or contest
+your rights to work written entirely by you; rather, the intent is to
+exercise the right to control the distribution of derivative or
+collective works based on the Program.
+
+In addition, mere aggregation of another work not based on the Program
+with the Program (or with a work based on the Program) on a volume of
+a storage or distribution medium does not bring the other work under
+the scope of this License.
+
+  3. You may copy and distribute the Program (or a work based on it,
+under Section 2) in object code or executable form under the terms of
+Sections 1 and 2 above provided that you also do one of the following:
+
+    a) Accompany it with the complete corresponding machine-readable
+    source code, which must be distributed under the terms of Sections
+    1 and 2 above on a medium customarily used for software interchange; or,
+
+    b) Accompany it with a written offer, valid for at least three
+    years, to give any third party, for a charge no more than your
+    cost of physically performing source distribution, a complete
+    machine-readable copy of the corresponding source code, to be
+    distributed under the terms of Sections 1 and 2 above on a medium
+    customarily used for software interchange; or,
+
+    c) Accompany it with the information you received as to the offer
+    to distribute corresponding source code.  (This alternative is
+    allowed only for noncommercial distribution and only if you
+    received the program in object code or executable form with such
+    an offer, in accord with Subsection b above.)
+
+The source code for a work means the preferred form of the work for
+making modifications to it.  For an executable work, complete source
+code means all the source code for all modules it contains, plus any
+associated interface definition files, plus the scripts used to
+control compilation and installation of the executable.  However, as a
+special exception, the source code distributed need not include
+anything that is normally distributed (in either source or binary
+form) with the major components (compiler, kernel, and so on) of the
+operating system on which the executable runs, unless that component
+itself accompanies the executable.
+
+If distribution of executable or object code is made by offering
+access to copy from a designated place, then offering equivalent
+access to copy the source code from the same place counts as
+distribution of the source code, even though third parties are not
+compelled to copy the source along with the object code.
+
+  4. You may not copy, modify, sublicense, or distribute the Program
+except as expressly provided under this License.  Any attempt
+otherwise to copy, modify, sublicense or distribute the Program is
+void, and will automatically terminate your rights under this License.
+However, parties who have received copies, or rights, from you under
+this License will not have their licenses terminated so long as such
+parties remain in full compliance.
+
+  5. You are not required to accept this License, since you have not
+signed it.  However, nothing else grants you permission to modify or
+distribute the Program or its derivative works.  These actions are
+prohibited by law if you do not accept this License.  Therefore, by
+modifying or distributing the Program (or any work based on the
+Program), you indicate your acceptance of this License to do so, and
+all its terms and conditions for copying, distributing or modifying
+the Program or works based on it.
+
+  6. Each time you redistribute the Program (or any work based on the
+Program), the recipient automatically receives a license from the
+original licensor to copy, distribute or modify the Program subject to
+these terms and conditions.  You may not impose any further
+restrictions on the recipients' exercise of the rights granted herein.
+You are not responsible for enforcing compliance by third parties to
+this License.
+
+  7. If, as a consequence of a court judgment or allegation of patent
+infringement or for any other reason (not limited to patent issues),
+conditions are imposed on you (whether by court order, agreement or
+otherwise) that contradict the conditions of this License, they do not
+excuse you from the conditions of this License.  If you cannot
+distribute so as to satisfy simultaneously your obligations under this
+License and any other pertinent obligations, then as a consequence you
+may not distribute the Program at all.  For example, if a patent
+license would not permit royalty-free redistribution of the Program by
+all those who receive copies directly or indirectly through you, then
+the only way you could satisfy both it and this License would be to
+refrain entirely from distribution of the Program.
+
+If any portion of this section is held invalid or unenforceable under
+any particular circumstance, the balance of the section is intended to
+apply and the section as a whole is intended to apply in other
+circumstances.
+
+It is not the purpose of this section to induce you to infringe any
+patents or other property right claims or to contest validity of any
+such claims; this section has the sole purpose of protecting the
+integrity of the free software distribution system, which is
+implemented by public license practices.  Many people have made
+generous contributions to the wide range of software distributed
+through that system in reliance on consistent application of that
+system; it is up to the author/donor to decide if he or she is willing
+to distribute software through any other system and a licensee cannot
+impose that choice.
+
+This section is intended to make thoroughly clear what is believed to
+be a consequence of the rest of this License.
+
+  8. If the distribution and/or use of the Program is restricted in
+certain countries either by patents or by copyrighted interfaces, the
+original copyright holder who places the Program under this License
+may add an explicit geographical distribution limitation excluding
+those countries, so that distribution is permitted only in or among
+countries not thus excluded.  In such case, this License incorporates
+the limitation as if written in the body of this License.
+
+  9. The Free Software Foundation may publish revised and/or new versions
+of the General Public License from time to time.  Such new versions will
+be similar in spirit to the present version, but may differ in detail to
+address new problems or concerns.
+
+Each version is given a distinguishing version number.  If the Program
+specifies a version number of this License which applies to it and "any
+later version", you have the option of following the terms and conditions
+either of that version or of any later version published by the Free
+Software Foundation.  If the Program does not specify a version number of
+this License, you may choose any version ever published by the Free Software
+Foundation.
+
+  10. If you wish to incorporate parts of the Program into other free
+programs whose distribution conditions are different, write to the author
+to ask for permission.  For software which is copyrighted by the Free
+Software Foundation, write to the Free Software Foundation; we sometimes
+make exceptions for this.  Our decision will be guided by the two goals
+of preserving the free status of all derivatives of our free software and
+of promoting the sharing and reuse of software generally.
+
+			    NO WARRANTY
+
+  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
+FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN
+OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES
+PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
+OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS
+TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE
+PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,
+REPAIR OR CORRECTION.
+
+  12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR
+REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,
+INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING
+OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED
+TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY
+YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
+PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES.
+
+		     END OF TERMS AND CONDITIONS
+
+	    How to Apply These Terms to Your New Programs
+
+  If you develop a new program, and you want it to be of the greatest
+possible use to the public, the best way to achieve this is to make it
+free software which everyone can redistribute and change under these terms.
+
+  To do so, attach the following notices to the program.  It is safest
+to attach them to the start of each source file to most effectively
+convey the exclusion of warranty; and each file should have at least
+the "copyright" line and a pointer to where the full notice is found.
+
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License** as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+Also add information on how to contact you by electronic and paper mail.
+
+If the program is interactive, make it output a short notice like this
+when it starts in an interactive mode:
+
+    Gnomovision version 69, Copyright (C) year name of author
+    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; type `show c' for details.
+
+The hypothetical commands `show w' and `show c' should show the appropriate
+parts of the General Public License.  Of course, the commands you use may
+be called something other than `show w' and `show c'; they could even be
+mouse-clicks or menu items--whatever suits your program.
+
+You should also get your employer (if you work as a programmer) or your
+school, if any, to sign a "copyright disclaimer" for the program, if
+necessary.  Here is a sample; alter the names:
+
+  Yoyodyne, Inc., hereby disclaims all copyright interest in the program
+  `Gnomovision' (which makes passes at compilers) written by James Hacker.
+
+  <signature of Ty Coon>, 1 April 1989
+  Ty Coon, President of Vice
+
+This General Public License does not permit incorporating your program into
+proprietary programs.  If your program is a subroutine library, you may
+consider it more useful to permit linking proprietary applications with the
+library.  If this is what you want to do, use the GNU Library General
+Public License instead of this License.
+
+

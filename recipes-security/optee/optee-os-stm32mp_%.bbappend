@@ -23,7 +23,7 @@ python () {
 # PACKAGE OF SOC
 CUBEMX_SOC_PACKAGE_option = "\
     ${@bb.utils.contains_any('CUBEMX_SOC_PACKAGE', [ 'A', 'D' ], 'CFG_STM32_CRYP=n', '', d)} \
-    ${@bb.utils.contains_any('CUBEMX_SOC_PACKAGE', [ 'C', 'F' ], 'CFG_STM32_CRYP=y', '', d)} \
+    ${@bb.utils.contains_any('CUBEMX_SOC_PACKAGE', [ 'C', 'F' ], 'CFG_STM32_CRYP=n', '', d)} \
     "
 # Memory size
 CUBEMX_BOARD_DDR_SIZE_option = "\
