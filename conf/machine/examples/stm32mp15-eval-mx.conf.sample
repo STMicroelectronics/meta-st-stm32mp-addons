@@ -82,8 +82,8 @@ ENABLE_CUBEMX_DTB ?= "1"
 
 # Boot Scheme
 # =========================================================================
-BOOTSCHEME_LABELS += "trusted"
-#BOOTSCHEME_LABELS += "optee"
+#BOOTSCHEME_LABELS += "trusted"
+BOOTSCHEME_LABELS += "optee"
 
 # Boot Device Choice
 # =========================================================================
