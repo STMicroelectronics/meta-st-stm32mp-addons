@@ -70,7 +70,6 @@ ENABLE_CUBEMX_DTB ?= "1"
 
 # Boot Scheme
 # =========================================================================
-#BOOTSCHEME_LABELS += "optee"
 BOOTSCHEME_LABELS += "opteemin"
 
 # Boot Device Choice

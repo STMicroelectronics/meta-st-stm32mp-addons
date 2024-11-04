@@ -16,12 +16,6 @@ CUBEMX_PROJECT ??= ""
 #       thanks to BBPATH
 CUBEMX_PROJECT_ABS = ""
 
-# M33 co-processor is used with Trustzone enabled or not
-CUBEMX_M33_TZ ??= "0"
-
-# internal, for M33_TZ, we need to update the dependency variable
-M33PROJECT_TF_M_TRUSTZONE = "${CUBEMX_M33_TZ}"
-
 # CubeMX use external_dt class
 inherit external-dt
 

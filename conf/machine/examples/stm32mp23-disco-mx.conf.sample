@@ -60,6 +60,12 @@ FIP_BL31_ENABLE = "1"
 # Set the FLASHLAYOUT_TYPE_LABELS for 'extensible' to CUBEMX_DTB
 FLASHLAYOUT_TYPE_LABELS:extensible = "${CUBEMX_DTB}"
 
+# ==========================================================================
+# M33 Copro
+# ==========================================================================
+# Set M33_TZ configuration
+M33PROJECT_TF_M_TRUSTZONE = "${CUBEMX_M33_TZ}"
+
 # =========================================================================
 # CubeMX extra config
 # =========================================================================
@@ -105,14 +111,8 @@ WIFI_LIST += "linux-firmware-bcm43439"
 # CubeMX Project Config
 # =========================================================================
 # Assign CubeMX Board devicetree and project path name
-#CUBEMX_DTB = "stm32mp257f-my-demo"
-#CUBEMX_PROJECT = "mx/STM32MP257F-EV1/my-demo/DeviceTree/my-demo"
+CUBEMX_DTB = "stm32mp235f-my-demo"
+CUBEMX_PROJECT = "mx/STM32MP235F-EV1/my-demo/DeviceTree/my-demo"
 
-# Indicate which STM32MP package are used: 'A', 'C', 'D' or 'F'
-#CUBEMX_SOC_PACKAGE = "F"
-
-# Indicate the size of DDR available on BOARD: 512 or 1024 (size in MB unit)
-#CUBEMX_BOARD_DDR_SIZE = "1024"
-
-# Indicate if you like to disable the DVFS which are activated by default
-#CUBEMX_SOC_DVFS_OFF = "0"
+# Indicate if M33 co-processor is used with Trustzone enabled or not
+CUBEMX_M33_TZ = "0"
