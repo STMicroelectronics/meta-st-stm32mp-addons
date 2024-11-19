@@ -15,15 +15,6 @@ python () {
 }
 
 # manage paramater value
-# PACKAGE OF SOC
-CUBEMX_SOC_PACKAGE_option = "\
-    ${@bb.utils.contains_any('CUBEMX_SOC_PACKAGE', [ 'A', 'D' ], 'CFG_STM32_CRYP=n', '', d)} \
-    ${@bb.utils.contains_any('CUBEMX_SOC_PACKAGE', [ 'C', 'F' ], 'CFG_STM32_CRYP=n', '', d)} \
-    "
-# Memory size
-CUBEMX_BOARD_DDR_SIZE_option = "\
-    ${@'CFG_DRAM_SIZE=${CUBEMX_BOARD_DDR_SIZE_HEXA}' if (d.getVar('CUBEMX_BOARD_DDR_SIZE_HEXA') != '') else '' } \
-    "
 # DVFS OFF
 CUBEMX_SOC_DVFS_OFF_option = "\
     ${@bb.utils.contains('CUBEMX_SOC_DVFS_OFF', '1', 'CFG_STM32MP1_CPU_OPP=n FG_SCMI_MSG_PERF_DOMAIN=n', '', d)} \
@@ -58,6 +49,25 @@ autogenerate_conf_for_external_dt_cubemx() {
                 [ "$(echo ${devicetree} | grep -c ${soc})" -eq 1 ] && dtb_by_soc="${dtb_by_soc} ${devicetree}.dts"
             done
             echo "flavor_dts_file-${supported}-CUBEMX = ${dtb_by_soc}" >> ${WORKDIR}/conf.external_dt
+
+            # add platform specific: package (with crypto or not), ddr size, HUK for mp15
+            if ${@bb.utils.contains_any('CUBEMX_SOC_PACKAGE',[ 'C', 'F' ],'true','false',d)}; then
+                echo "flavorlist-no_cryp = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
+            fi
+            case ${CUBEMX_BOARD_DDR_SIZE} in
+            512)
+                echo "flavorlist-512M = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
+                ;;
+            1024)
+                echo "flavorlist-1G = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
+                ;;
+            *)
+                ;;
+            esac
+            if ${@bb.utils.contains('MACHINE_FEATURES','m33td','true','false',d)}; then
+                echo "flavorlist-M33-TDCID = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
+            fi
+
             echo "flavorlist-${supported} += \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
         done
         echo "" >> ${WORKDIR}/conf.external_dt

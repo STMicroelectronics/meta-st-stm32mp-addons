@@ -13,8 +13,8 @@ include conf/machine/include/st-machine-common-stm32mp.inc
 include conf/machine/include/st-machine-providers-stm32mp.inc
 
 # Define specific common machine name
-MACHINEOVERRIDES .= ":stm32mp1common:stm32mp15common"
 MACHINEOVERRIDES .= ":stm32mpcommonmx:stm32mp15commonmx"
+MACHINEOVERRIDES .= ":stm32mp1common:stm32mp15common"
 
 # =========================================================================
 # Chip architecture
@@ -61,17 +61,6 @@ FLASHLAYOUT_TYPE_LABELS:extensible = "${CUBEMX_DTB}"
 # =========================================================================
 ENABLE_CUBEMX_DTB ?= "1"
 
-# =========================================================================
-# OPTEE profile
-# =========================================================================
-# Optee profile, permit to activate or desactvate a list of service on optee.
-# There is two configuration available:
-#  - secure_and_system_services aka optee boot scheme
-#  - system_services aka opteemin boot scheme
-
-# Default optee profile use by all soc, (if exception see if there is a specific
-# profile for a soc)
-ST_OPTEE_PROFILE ?= "system_services"
 
 ###########################################################################
 #
@@ -81,7 +70,8 @@ ST_OPTEE_PROFILE ?= "system_services"
 
 # Boot Scheme
 # =========================================================================
-BOOTSCHEME_LABELS += "optee"
+#BOOTSCHEME_LABELS += "optee"
+BOOTSCHEME_LABELS += "opteemin"
 
 # Boot Device Choice
 # =========================================================================
@@ -100,9 +90,9 @@ MACHINE_FEATURES += "wifi"
 KERNEL_MODULE_AUTOLOAD += ""
 
 # Set Bluetooth related package list needed when 'bluetooth' feature is enabled
-#   NOTE    'linux-firmware-bluetooth-bcm4343' firmware is specific to BT/WIFI
+#   NOTE    'linux-firmware-bluetooth-bcm43xx' firmware is specific to BT/WIFI
 #           combo used on DISCO boards"
-BLUETOOTH_LIST += "linux-firmware-bluetooth-bcm4343"
+BLUETOOTH_LIST += "linux-firmware-bluetooth-bcm43xx"
 
 # Set Wifi related package list needed when 'wifi' feature is enabled
 #   NOTE    'linux-firmware-bcm43430' firmware is specific to BT/WIFI combo used

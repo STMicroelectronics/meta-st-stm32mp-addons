@@ -13,8 +13,8 @@ include conf/machine/include/st-machine-common-stm32mp.inc
 include conf/machine/include/st-machine-providers-stm32mp.inc
 
 # Define specific common machine name
-MACHINEOVERRIDES .= ":stm32mp2common:stm32mp25common"
 MACHINEOVERRIDES .= ":stm32mpcommonmx:stm32mp25commonmx"
+MACHINEOVERRIDES .= ":stm32mp2common:stm32mp25common"
 
 # =========================================================================
 # Chip architecture
@@ -64,18 +64,6 @@ FLASHLAYOUT_TYPE_LABELS:extensible = "${CUBEMX_DTB}"
 # CubeMX extra config
 # =========================================================================
 ENABLE_CUBEMX_DTB ?= "1"
-
-# =========================================================================
-# OPTEE profile
-# =========================================================================
-# Optee profile, permit to activate or desactvate a list of service on optee.
-# There is two configuration available:
-#  - secure_and_system_services aka optee boot scheme
-#  - system_services aka opteemin boot scheme
-
-# Default optee profile use by all soc, (if exception see if there is a specific
-# profile for a soc)
-ST_OPTEE_PROFILE ?= "secure_and_system_services"
 
 ###########################################################################
 #

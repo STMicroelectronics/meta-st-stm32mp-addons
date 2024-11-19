@@ -1,6 +1,6 @@
 #@TYPE: Machine
-#@NAME: stm32mp15-mx
-#@DESCRIPTION: Configuration for STM32CubeMX generated project
+#@NAME: stm32mp23-disco-mx
+#@DESCRIPTION: [STM32CubeMX-EXAMPLE] STM32MP235f-DK board ONLY with Optee boot and SDcard support
 #@NEEDED_BSPLAYERS: layers/meta-openembedded/meta-oe layers/meta-openembedded/meta-python
 
 ###########################################################################
@@ -13,19 +13,19 @@ include conf/machine/include/st-machine-common-stm32mp.inc
 include conf/machine/include/st-machine-providers-stm32mp.inc
 
 # Define specific common machine name
-MACHINEOVERRIDES .= ":stm32mp1common:stm32mp15common"
-MACHINEOVERRIDES .= ":stm32mpcommonmx:stm32mp15commonmx"
+MACHINEOVERRIDES .= ":stm32mpcommonmx:stm32mp23commonmx"
+MACHINEOVERRIDES .= ":stm32mp2common:stm32mp23common"
 
 # =========================================================================
 # Chip architecture
 # =========================================================================
-DEFAULTTUNE = "cortexa7thf-neon-vfpv4"
-include conf/machine/include/arm/armv7a/tune-cortexa7.inc
+DEFAULTTUNE = "cortexa35"
+include conf/machine/include/arm/armv8a/tune-cortexa35.inc
 
 # =========================================================================
 # boot scheme
 # =========================================================================
-BOOTSCHEME_LABELS ?= "opteemin"
+BOOTSCHEME_LABELS ?= ""
 
 # =========================================================================
 # boot device
@@ -48,7 +48,11 @@ STM32MP_DT_FILES_SPINAND += "${CUBEMX_DTB}"
 MACHINE_FEATURES += "splashscreen"
 MACHINE_FEATURES += "watchdog"
 MACHINE_FEATURES += "${@'gpu' if d.getVar('ACCEPT_EULA_'+d.getVar('MACHINE')) == '1' else ''}"
-MACHINE_FEATURES += "m4copro"
+
+# =========================================================================
+# fip
+# =========================================================================
+FIP_BL31_ENABLE = "1"
 
 # =========================================================================
 # Flashlayout
@@ -69,12 +73,12 @@ ENABLE_CUBEMX_DTB ?= "1"
 
 # Boot Scheme
 # =========================================================================
-#BOOTSCHEME_LABELS += "opteemin"
+BOOTSCHEME_LABELS += "optee"
 
 # Boot Device Choice
 # =========================================================================
 # Define the boot device supported
-#BOOTDEVICE_LABELS += "sdcard"
+BOOTDEVICE_LABELS += "sdcard"
 #BOOTDEVICE_LABELS += "emmc"
 #BOOTDEVICE_LABELS += "nand-4-256-1024"
 #BOOTDEVICE_LABELS += "nor-sdcard"
@@ -82,8 +86,8 @@ ENABLE_CUBEMX_DTB ?= "1"
 # Support Feature Choice
 # =========================================================================
 # Define the features to enable on board
-#MACHINE_FEATURES += "bluetooth"
-#MACHINE_FEATURES += "wifi"
+MACHINE_FEATURES += "bluetooth"
+MACHINE_FEATURES += "wifi"
 
 # Specific firmwares and kernel modules configuration
 # =========================================================================
@@ -91,16 +95,18 @@ ENABLE_CUBEMX_DTB ?= "1"
 #KERNEL_MODULE_AUTOLOAD += ""
 
 # Set Bluetooth related package list needed when 'bluetooth' feature is enabled
-#BLUETOOTH_LIST += ""
+#   NOTE    'linux-firmware-bluetooth-bcm43xx' firmware is specific to BT/WIFI
+#           combo used on DISCO boards"
+BLUETOOTH_LIST += "linux-firmware-bluetooth-bcm43xx"
 
 # Set Wifi related package list needed when 'wifi' feature is enabled
-#WIFI_LIST += ""
+WIFI_LIST += "linux-firmware-bcm43439"
 
 # CubeMX Project Config
 # =========================================================================
 # Assign CubeMX Board devicetree and project path name
-#CUBEMX_DTB = "stm32mp157c-my-demo"
-#CUBEMX_PROJECT = "mx/STM32MP157F-EV1/my-demo/DeviceTree/my-demo"
+#CUBEMX_DTB = "stm32mp257f-my-demo"
+#CUBEMX_PROJECT = "mx/STM32MP257F-EV1/my-demo/DeviceTree/my-demo"
 
 # Indicate which STM32MP package are used: 'A', 'C', 'D' or 'F'
 #CUBEMX_SOC_PACKAGE = "F"
