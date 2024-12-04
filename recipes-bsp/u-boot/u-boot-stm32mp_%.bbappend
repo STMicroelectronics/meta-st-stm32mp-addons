@@ -2,7 +2,7 @@
 inherit cubemx-stm32mp
 
 # for generating external dt Makefile
-SOC_UBOOT_CONFIG_SUPPORTED = "CONFIG_STM32MP13X CONFIG_STM32MP15X CONFIG_STM32MP25X CONFIG_STM32MP23X"
+SOC_UBOOT_CONFIG_SUPPORTED = "CONFIG_STM32MP13X CONFIG_STM32MP15X CONFIG_STM32MP21X CONFIG_STM32MP23X CONFIG_STM32MP25X"
 
 # ------------------------------------------------
 # Generate Makefile for usage of EXTERNAL DT with cubemx devicetree
