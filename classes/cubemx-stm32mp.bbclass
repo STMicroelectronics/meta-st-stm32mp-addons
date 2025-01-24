@@ -81,7 +81,10 @@ python check_cubemx_extdt() {
         sub_path = extdt_conf.split(':')[1]
         if provider in d.getVar('PROVIDES').split():
             cubemx_dts_file = os.path.join(d.getVar('STAGING_EXTDT_DIR'), sub_path, d.getVar('CUBEMX_DTB') + '.dts')
+            cubemx_dts_file_ns = os.path.join(d.getVar('STAGING_EXTDT_DIR'), sub_path, d.getVar('CUBEMX_DTB') + '-ns.dts')
             if os.path.exists(cubemx_dts_file):
+                break
+            elif os.path.exists(cubemx_dts_file_ns):
                 break
             else:
                 bb.fatal('File %s not found: compilation aborted for %s device tree.' % (cubemx_dts_file, d.getVar('BPN')))
