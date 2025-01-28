@@ -15,6 +15,11 @@ python () {
 }
 
 # manage paramater value
+# Memory size
+CUBEMX_BOARD_DDR_SIZE_option = "\
+    ${@'CFG_DRAM_SIZE=${CUBEMX_BOARD_DDR_SIZE_HEXA}' if (d.getVar('CUBEMX_BOARD_DDR_SIZE_HEXA') != '') else '' } \
+    "
+
 # DVFS OFF
 CUBEMX_SOC_DVFS_OFF_option = "\
     ${@bb.utils.contains('CUBEMX_SOC_DVFS_OFF', '1', 'CFG_STM32MP1_CPU_OPP=n FG_SCMI_MSG_PERF_DOMAIN=n', '', d)} \
