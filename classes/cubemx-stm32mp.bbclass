@@ -5,6 +5,9 @@
 # Configure generation of device tree binary with CubeMX output files
 ENABLE_CUBEMX_DTB ??= "0"
 
+# configure CubeMX device tree file check in source
+ENABLE_CUBEMX_DTB_CHK ??= "1"
+
 # CubeMX device tree file name
 CUBEMX_DTB ??= ""
 # Path to CubeMX project generated device tree files
@@ -62,8 +65,9 @@ python __anonymous() {
         bbpaths = d.getVar('BBPATH').replace(':','\n\t')
         bb.fatal('\n[cubemx-stm32mp] Not able to find "%s" path from current BBPATH var:\n\t%s.' % (cubemx_project, bbpaths))
 
-    # Append function to check before 'do_compile' that device tree file is available
-    d.prependVarFlag('do_compile', 'prefuncs', "check_cubemx_extdt ")
+    if d.getVar('ENABLE_CUBEMX_DTB_CHK') == "1":
+        # Append function to check before 'do_compile' that device tree file is available
+        d.prependVarFlag('do_compile', 'prefuncs', "check_cubemx_extdt ")
 
     # Make sure to init CONFIGURE_FILES with proper STAGING_EXTDT_DIR
     for extdt_conf in d.getVar('EXTDT_DIR_CONFIG').split():
