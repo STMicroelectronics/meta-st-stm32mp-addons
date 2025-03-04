@@ -36,11 +36,12 @@ BOOTDEVICE_LABELS ?= ""
 # Machine settings
 # =========================================================================
 # Enable the board device storage support with CUBEMX_DTB
-STM32MP_DT_FILES_NAND    += "${CUBEMX_DTB}"
-STM32MP_DT_FILES_NOR     += "${CUBEMX_DTB}"
-STM32MP_DT_FILES_EMMC    += "${CUBEMX_DTB}"
-STM32MP_DT_FILES_SDCARD  += "${CUBEMX_DTB}"
-STM32MP_DT_FILES_SPINAND += "${CUBEMX_DTB}"
+STM32MP_DT_FILES_NAND      += "${CUBEMX_DTB}"
+STM32MP_DT_FILES_NOR_all   += "${CUBEMX_DTB}"
+STM32MP_DT_FILES_NOR_mb    += "${CUBEMX_DTB}"
+STM32MP_DT_FILES_EMMC      += "${CUBEMX_DTB}"
+STM32MP_DT_FILES_SDCARD    += "${CUBEMX_DTB}"
+STM32MP_DT_FILES_SPINAND   += "${CUBEMX_DTB}"
 
 # =========================================================================
 # Machine features (default for stm32mp1 like)
