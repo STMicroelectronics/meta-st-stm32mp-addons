@@ -92,12 +92,12 @@ KERNEL_MODULE_AUTOLOAD += ""
 # Set Bluetooth related package list needed when 'bluetooth' feature is enabled
 #   NOTE    'linux-firmware-bluetooth-bcm43xx' firmware is specific to BT/WIFI
 #           combo used on DISCO boards"
-BLUETOOTH_LIST += "linux-firmware-bluetooth-bcm43xx"
+BLUETOOTH_LIST += "linux-firmware-addons-bcm43xx"
 
 # Set Wifi related package list needed when 'wifi' feature is enabled
 #   NOTE    'linux-firmware-bcm43430' firmware is specific to BT/WIFI combo used
 #           on DISCO boards
-WIFI_LIST += "linux-firmware-bcm43430"
+WIFI_LIST += "linux-firmware-addons-bcm43xx"
 
 # CubeMX Project Config
 # =========================================================================
