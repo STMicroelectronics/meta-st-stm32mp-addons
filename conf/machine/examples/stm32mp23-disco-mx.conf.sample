@@ -108,16 +108,16 @@ MACHINE_FEATURES += "wifi"
 # Set Bluetooth related package list needed when 'bluetooth' feature is enabled
 #   NOTE    'linux-firmware-bluetooth-bcm43xx' firmware is specific to BT/WIFI
 #           combo used on DISCO boards"
-BLUETOOTH_LIST += "linux-firmware-bluetooth-bcm43xx"
+BLUETOOTH_LIST += "linux-firmware-addons-bcm43xx"
 
 # Set Wifi related package list needed when 'wifi' feature is enabled
-WIFI_LIST += "linux-firmware-bcm43439"
+WIFI_LIST += "linux-firmware-addons-bcm43xx"
 
 # CubeMX Project Config
 # =========================================================================
 # Assign CubeMX Board devicetree and project path name
 CUBEMX_DTB = "stm32mp235f-my-demo"
-CUBEMX_PROJECT = "mx/STM32MP235F-EV1/my-demo/DeviceTree/my-demo"
+CUBEMX_PROJECT = "mx/STM32MP235F-DK/my-demo/DeviceTree/my-demo"
 
 # Indicate if M33 co-processor is used with Trustzone enabled or not
 CUBEMX_M33_TZ = "0"
