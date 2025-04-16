@@ -1,3 +1,3 @@
 # Configure recipe for CubeMX
-EXTERNALSRC:stm32mpcommonmx = "${STAGING_EXTDT_DIR}"
-EXTERNALSRC_BUILD:stm32mpcommonmx = "${STAGING_EXTDT_DIR}"
+EXTERNALSRC:stm32mpcommonmx = "${@bb.utils.contains('ENABLE_CUBEMX_DTB', '1', '${STAGING_EXTDT_DIR}', '', d)}"
+EXTERNALSRC_BUILD:stm32mpcommonmx = "${@bb.utils.contains('ENABLE_CUBEMX_DTB', '1', '${STAGING_EXTDT_DIR}', '', d)}"
