@@ -13,29 +13,31 @@ CUBEMX_DTB ??= ""
 # Path to CubeMX project generated device tree files
 CUBEMX_PROJECT ??= ""
 
-# Internal class variable to manage CubeMX file location:
-#   CUBEMX_PROJECT_ABS
-#       Absolute path to CubeMX project generated device tree files, initialized
-#       thanks to BBPATH
-CUBEMX_PROJECT_ABS = ""
-
 # CubeMX use external_dt class
 inherit external-dt
 
-EXTERNAL_DT_ENABLED:stm32mpcommonmx = "${@bb.utils.contains('ENABLE_CUBEMX_DTB', '1', '1', '0', d)}"
+EXTERNAL_DT_ENABLED:stm32mpcommonmx = "1"
 
-STAGING_EXTDT_DIR:stm32mpcommonmx = "${CUBEMX_PROJECT_ABS}"
+STAGING_EXTDT_DIR:stm32mpcommonmx = "${@cubemx_search(d.getVar('CUBEMX_PROJECT'),d)[1]}"
 
-EXTDT_DIR_TF_A:stm32mpcommonmx  = "tf-a"
-EXTDT_DIR_UBOOT:stm32mpcommonmx = "u-boot"
-EXTDT_DIR_TF_M:stm32mpcommonmx  = "tf-m"
-EXTDT_DIR_OPTEE:stm32mpcommonmx = "optee-os"
-EXTDT_DIR_LINUX:stm32mpcommonmx = "kernel"
+EXTDT_DIR_TF_A:stm32mpcommonmx          = "${EXTDT_ROOTDIR}tf-a"
+EXTDT_DIR_TF_A_SERIAL:stm32mpcommonmx   = "${EXTDT_ROOTDIR}tf-a"
+EXTDT_DIR_UBOOT:stm32mpcommonmx         = "${EXTDT_ROOTDIR}u-boot"
+EXTDT_DIR_UBOOT_SERIAL:stm32mpcommonmx  = "${EXTDT_ROOTDIR}u-boot"
+EXTDT_DIR_MCU:stm32mpcommonmx           = "${EXTDT_ROOTDIR}mcuboot"
+EXTDT_DIR_TF_M:stm32mpcommonmx          = "${EXTDT_ROOTDIR}tf-m"
+EXTDT_DIR_OPTEE:stm32mpcommonmx         = "${EXTDT_ROOTDIR}optee-os"
+EXTDT_DIR_OPTEE_SERIAL:stm32mpcommonmx  = "${EXTDT_ROOTDIR}optee-os"
+EXTDT_DIR_LINUX:stm32mpcommonmx         = "${EXTDT_ROOTDIR}kernel"
 
 # Do not force make file generation on recipe side when file already available
 CUBEMX_EXTDT_FORCE_MK ??= "0"
 
 def cubemx_search(dirs, d):
+    """
+    Manage CubeMX files location by looking for CubeMX project thanks to BBPATH
+    Return true/false and absolute path to CubeMX project if found.
+    """
     search_path = d.getVar("BBPATH").split(":")
     for dir in dirs.split():
         for p in search_path:
@@ -56,11 +58,10 @@ python __anonymous() {
     if cubemx_dtb == "":
         raise bb.parse.SkipRecipe('\n[cubemx-stm32mp] CUBEMX_DTB var is empty. Please initalize it on your %s CubeMX machine configuration.\n' % d.getVar("MACHINE"))
 
-    # Set CUBEMX_PROJECT_ABS according to CubeMX machine configuration
+    # Check CubeMX project path according to CubeMX machine configuration
     found, cubemx_project_dir = cubemx_search(cubemx_project, d)
     if found:
-        bb.debug(1, "Set CUBEMX_PROJECT_ABS to '%s' path." % cubemx_project_dir)
-        d.setVar('CUBEMX_PROJECT_ABS', cubemx_project_dir)
+        bb.debug(1, "Found CubeMX project absolute path: %s" % cubemx_project_dir)
     else:
         bbpaths = d.getVar('BBPATH').replace(':','\n\t')
         bb.fatal('\n[cubemx-stm32mp] Not able to find "%s" path from current BBPATH var:\n\t%s.' % (cubemx_project, bbpaths))
@@ -85,11 +86,23 @@ python check_cubemx_extdt() {
         sub_path = extdt_conf.split(':')[1]
         if provider in d.getVar('PROVIDES').split():
             cubemx_dts_file = os.path.join(d.getVar('STAGING_EXTDT_DIR'), sub_path, d.getVar('CUBEMX_DTB') + '.dts')
-            cubemx_dts_file_ns = os.path.join(d.getVar('STAGING_EXTDT_DIR'), sub_path, d.getVar('CUBEMX_DTB') + '-ns.dts')
             if os.path.exists(cubemx_dts_file):
                 break
-            elif os.path.exists(cubemx_dts_file_ns):
-                break
+            elif d.getVar('EXTDT_USE_SUFFIX') == '1':
+                found = False
+                suffix_list = ""
+                for storage in d.getVar('EXTDT_SUFFIX_STORAGE').split():
+                    suffix = d.getVar('EXTDT_SUFFIX_%s' % storage) or ""
+                    if suffix:
+                        suffix_list += ' ' + suffix
+                        cubemx_dts_raw = os.path.join(d.getVar('STAGING_EXTDT_DIR'), sub_path, d.getVar('CUBEMX_DTB'))
+                        if os.path.exists(cubemx_dts_raw + suffix + '.dts'):
+                            found = True
+                            break
+                if found:
+                    break
+                else:
+                    bb.fatal('File %s[%s].dts not found: compilation aborted for %s device tree.' % (cubemx_dts_raw, suffix_list, d.getVar('BPN')))
             else:
                 bb.fatal('File %s not found: compilation aborted for %s device tree.' % (cubemx_dts_file, d.getVar('BPN')))
 }
