@@ -25,8 +25,10 @@ EXTRA_OEMAKE += "${CUBEMX_SOC_PACKAGE_option} ${CUBEMX_BOARD_DDR_SIZE_option} ${
 # for generating external dt Makefile
 SOC_OPTEE_CONFIG_SUPPORTED = "MP13 MP15 MP21 MP23 MP25"
 
+# Configure for optee TA
 ST_OPTEE_EXPORT_TA_REF_BOARD:stm32mpcommonmx = "${CUBEMX_DTB}.dts"
-ST_OPTEE_EXPORT_TA_OEMAKE_EXTRA = ""
+ST_OPTEE_EXPORT_TA_OEMAKE_EXTRA:stm32mpcommonmx = "CFG_EXT_DTS=${STAGING_EXTDT_DIR}/${EXTDT_DIR_OPTEE}"
+
 # ------------------------------------------------
 # Generate optee conf for usage of EXTERNAL DT with cubemx devicetree
 # ------------------------------------------------
