@@ -40,7 +40,7 @@ autogenerate_conf_for_external_dt_cubemx() {
     echo "# SPDX-License-Identifier: BSD-2-Clause" > ${WORKDIR}/conf.external_dt
     echo "" >>  ${WORKDIR}/conf.external_dt
 
-    dtb=$(echo ${STM32MP_DEVICETREE} | tr ' ' '\n' | uniq | tr '\n' ' ')
+    dtb=$(echo "${STM32MP_DEVICETREE} ${STM32MP_DT_FILES_PROGRAMMER}" | tr ' ' '\n' | uniq | tr '\n' ' ')
     for supported in ${SOC_OPTEE_CONFIG_SUPPORTED}; do
         echo "# ${supported} boards" >> ${WORKDIR}/conf.external_dt
         for soc in ${STM32MP_SOC_NAME}; do
