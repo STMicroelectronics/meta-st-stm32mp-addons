@@ -15,11 +15,10 @@ autogenerate_makefile_for_external_dt_cubemx() {
     echo "# SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)" > ${WORKDIR}/Makefile.external_dt
     echo "" >>  ${WORKDIR}/Makefile.external_dt
 
-    dtb=$(echo ${STM32MP_DEVICETREE} | tr ' ' '\n' | uniq | tr '\n' ' ')
+    dtb=$(echo "${STM32MP_DEVICETREE} ${STM32MP_DT_FILES_PROGRAMMER}" | tr ' ' '\n' | uniq | tr '\n' ' ')
     for supported in ${SOC_UBOOT_CONFIG_SUPPORTED}; do
         echo "dtb-\$(${supported}) += \\" >> ${WORKDIR}/Makefile.external_dt
         for soc in ${STM32MP_SOC_NAME}; do
-
             soc_maj=$(echo ${soc} | awk '{print toupper($0)}')
             [ "$(echo ${supported} | grep -c ${soc_maj})" -ne 1 ] && continue
             for devicetree in ${dtb}; do
