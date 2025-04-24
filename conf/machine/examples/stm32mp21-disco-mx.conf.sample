@@ -9,12 +9,12 @@
 #
 ###########################################################################
 
+# Define specific common machine name
+MACHINEOVERRIDES =. "stm32mpcommonmx:stm32mp2commonmx:stm32mp21commonmx:"
+MACHINEOVERRIDES =. "stm32mp2common:stm32mp21common:"
+
 include conf/machine/include/st-machine-common-stm32mp.inc
 include conf/machine/include/st-machine-providers-stm32mp.inc
-
-# Define specific common machine name
-MACHINEOVERRIDES .= ":stm32mpcommonmx:stm32mp21commonmx"
-MACHINEOVERRIDES .= ":stm32mp2common:stm32mp21common"
 
 # =========================================================================
 # Chip architecture
@@ -115,7 +115,8 @@ WIFI_LIST += "linux-firmware-addons-bcm43xx"
 # =========================================================================
 # Assign CubeMX Board devicetree and project path name
 CUBEMX_DTB = "stm32mp215f-my-demo"
-CUBEMX_PROJECT = "mx/STM32MP215F-EV1/my-demo/DeviceTree/my-demo"
+CUBEMX_PROJECT = "mx/my-demo"
+CUBEMX_PROJECT_NAME = "my-demo"
 
 # Indicate if M33 co-processor is used with Trustzone enabled or not
 CUBEMX_M33_TZ = "0"

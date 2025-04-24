@@ -9,12 +9,12 @@
 #
 ###########################################################################
 
+# Define specific common machine name
+MACHINEOVERRIDES =. "stm32mpcommonmx:stm32mp1commonmx:stm32mp15commonmx:"
+MACHINEOVERRIDES =. "stm32mp1common:stm32mp15common:"
+
 include conf/machine/include/st-machine-common-stm32mp.inc
 include conf/machine/include/st-machine-providers-stm32mp.inc
-
-# Define specific common machine name
-MACHINEOVERRIDES .= ":stm32mpcommonmx:stm32mp15commonmx"
-MACHINEOVERRIDES .= ":stm32mp1common:stm32mp15common"
 
 # =========================================================================
 # Chip architecture
@@ -103,7 +103,8 @@ WIFI_LIST += "linux-firmware-addons-bcm43xx"
 # =========================================================================
 # Assign CubeMX Board devicetree and project path name
 CUBEMX_DTB = "stm32mp157f-my-demo-mx"
-CUBEMX_PROJECT = "mx/STM32MP157F-DK2/my-demo/DeviceTree/my-demo"
+CUBEMX_PROJECT = "mx/my-demo"
+CUBEMX_PROJECT_NAME = "my-demo"
 
 # Indicate which STM32MP package are used: 'A', 'C', 'D' or 'F'
 #CUBEMX_SOC_PACKAGE = "F"

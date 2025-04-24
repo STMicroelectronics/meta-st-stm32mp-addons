@@ -12,6 +12,8 @@ ENABLE_CUBEMX_DTB_CHK ??= "1"
 CUBEMX_DTB ??= ""
 # Path to CubeMX project generated device tree files
 CUBEMX_PROJECT ??= ""
+# CubeMX project name
+CUBEMX_PROJECT_NAME ??= ""
 
 # CubeMX use external_dt class
 inherit external-dt
@@ -20,15 +22,20 @@ EXTERNAL_DT_ENABLED:stm32mpcommonmx = "1"
 
 STAGING_EXTDT_DIR:stm32mpcommonmx = "${@cubemx_search(d.getVar('CUBEMX_PROJECT'),d)[1]}"
 
-EXTDT_DIR_TF_A:stm32mpcommonmx          = "${EXTDT_ROOTDIR}tf-a"
-EXTDT_DIR_TF_A_SERIAL:stm32mpcommonmx   = "${EXTDT_ROOTDIR}tf-a"
-EXTDT_DIR_UBOOT:stm32mpcommonmx         = "${EXTDT_ROOTDIR}u-boot"
-EXTDT_DIR_UBOOT_SERIAL:stm32mpcommonmx  = "${EXTDT_ROOTDIR}u-boot"
-EXTDT_DIR_MCU:stm32mpcommonmx           = "${EXTDT_ROOTDIR}mcuboot"
-EXTDT_DIR_TF_M:stm32mpcommonmx          = "${EXTDT_ROOTDIR}tf-m"
-EXTDT_DIR_OPTEE:stm32mpcommonmx         = "${EXTDT_ROOTDIR}optee-os"
-EXTDT_DIR_OPTEE_SERIAL:stm32mpcommonmx  = "${EXTDT_ROOTDIR}optee-os"
-EXTDT_DIR_LINUX:stm32mpcommonmx         = "${EXTDT_ROOTDIR}kernel"
+EXTDT_DIR_TF_A:stm32mp1commonmx = "CA7/DeviceTree/${CUBEMX_PROJECT_NAME}/tf-a"
+EXTDT_DIR_TF_A:stm32mp2commonmx = "CA35/DeviceTree/${CUBEMX_PROJECT_NAME}/tf-a"
+EXTDT_DIR_TF_A_SERIAL:stm32mpcommonmx = "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', 'ExtMemLoader/DeviceTree/${CUBEMX_PROJECT_NAME}/tf-a', '${EXTDT_DIR_TF_A}', d)}"
+EXTDT_DIR_UBOOT:stm32mp1commonmx = "CA7/DeviceTree/${CUBEMX_PROJECT_NAME}/u-boot"
+EXTDT_DIR_UBOOT:stm32mp2commonmx = "CA35/DeviceTree/${CUBEMX_PROJECT_NAME}/u-boot"
+EXTDT_DIR_UBOOT_SERIAL:stm32mpcommonmx = "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', 'ExtMemLoader/DeviceTree/${CUBEMX_PROJECT_NAME}/u-boot', '${EXTDT_DIR_UBOOT}', d)}"
+EXTDT_DIR_OPTEE:stm32mp1commonmx = "CA7/DeviceTree/${CUBEMX_PROJECT_NAME}/optee-os"
+EXTDT_DIR_OPTEE:stm32mp2commonmx = "CA35/DeviceTree/${CUBEMX_PROJECT_NAME}/optee-os"
+EXTDT_DIR_OPTEE_SERIAL:stm32mpcommonmx = "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', 'ExtMemLoader/DeviceTree/${CUBEMX_PROJECT_NAME}/optee-os', '${EXTDT_DIR_OPTEE}', d)}"
+EXTDT_DIR_LINUX:stm32mp1commonmx = "CA35/DeviceTree/${CUBEMX_PROJECT_NAME}/kernel"
+EXTDT_DIR_LINUX:stm32mp2commonmx = "CA35/DeviceTree/${CUBEMX_PROJECT_NAME}/kernel"
+
+EXTDT_DIR_MCU:stm32mpcommonmx  = "CM33/DeviceTree/${CUBEMX_PROJECT_NAME}/mcuboot"
+EXTDT_DIR_TF_M:stm32mpcommonmx = "CM33/DeviceTree/${CUBEMX_PROJECT_NAME}/tf-m"
 
 # Do not force make file generation on recipe side when file already available
 CUBEMX_EXTDT_FORCE_MK ??= "0"
