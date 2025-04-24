@@ -78,6 +78,11 @@ autogenerate_conf_for_external_dt_cubemx() {
 
     cp -f ${WORKDIR}/conf.external_dt ${STAGING_EXTDT_DIR}/${EXTDT_DIR_OPTEE}/conf.mk
 
+    # Duplicate same conf for EXTDT_DIR_OPTEE_SERIAL
+    if [ -e "${STAGING_EXTDT_DIR}/${EXTDT_DIR_OPTEE_SERIAL}/conf.mk" ]; then
+        [ "${CUBEMX_EXTDT_FORCE_MK}" -ne 1 ] && return
+    fi
+    cp -f ${WORKDIR}/conf.external_dt ${STAGING_EXTDT_DIR}/${EXTDT_DIR_OPTEE_SERIAL}/conf.mk
 }
 python() {
     machine_overrides = d.getVar('MACHINEOVERRIDES').split(':')

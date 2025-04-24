@@ -42,6 +42,11 @@ autogenerate_makefile_for_external_dt_cubemx() {
     echo "clean-files := *.dtb *.dtbo *_HS" >> ${WORKDIR}/Makefile.external_dt
 
     cp -f ${WORKDIR}/Makefile.external_dt ${STAGING_EXTDT_DIR}/${EXTDT_DIR_UBOOT}/Makefile
+    # Duplicate same conf for EXTDT_DIR_OPTEE_SERIAL
+    if [ -e "${STAGING_EXTDT_DIR}/${EXTDT_DIR_UBOOT_SERIAL}/Makefile" ]; then
+        [ "${CUBEMX_EXTDT_FORCE_MK}" -ne 1 ] && return
+    fi
+    cp -f ${WORKDIR}/Makefile.external_dt ${STAGING_EXTDT_DIR}/${EXTDT_DIR_UBOOT_SERIAL}/Makefile
 }
 python() {
     machine_overrides = d.getVar('MACHINEOVERRIDES').split(':')
