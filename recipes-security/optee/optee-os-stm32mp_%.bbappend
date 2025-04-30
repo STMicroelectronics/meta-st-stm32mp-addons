@@ -2,10 +2,6 @@
 inherit cubemx-stm32mp
 
 python () {
-    soc_package = (d.getVar('CUBEMX_SOC_PACKAGE') or "").split()
-    if len(soc_package) > 1:
-        bb.fatal('The CUBEMX_SOC_PACKAGE is initialized to: %s ! This var should only contains ONE package version' % soc_package)
-
     ddr_size = d.getVar('CUBEMX_BOARD_DDR_SIZE')
     if ddr_size is not None:
         size = int(ddr_size) * 1024 * 1024
@@ -14,13 +10,8 @@ python () {
         d.setVar('CUBEMX_BOARD_DDR_SIZE_HEXA', "")
 }
 
-# manage paramater value
-# DVFS OFF
-CUBEMX_SOC_DVFS_OFF_option = "\
-    ${@bb.utils.contains('CUBEMX_SOC_DVFS_OFF', '1', 'CFG_STM32MP1_CPU_OPP=n FG_SCMI_MSG_PERF_DOMAIN=n', '', d)} \
-    "
-
-EXTRA_OEMAKE += "${CUBEMX_SOC_PACKAGE_option} ${CUBEMX_BOARD_DDR_SIZE_option} ${CUBEMX_SOC_DVFS_OFF_option}"
+# Manage DDR size value
+EXTRA_OEMAKE += "${@'CFG_DRAM_SIZE=${CUBEMX_BOARD_DDR_SIZE_HEXA}' if (d.getVar('CUBEMX_BOARD_DDR_SIZE_HEXA') != '') else '' }"
 
 # for generating external dt Makefile
 SOC_OPTEE_CONFIG_SUPPORTED = "MP13 MP15 MP21 MP23 MP25"
@@ -49,25 +40,34 @@ autogenerate_conf_for_external_dt_cubemx() {
         for soc in ${STM32MP_SOC_NAME}; do
             soc_maj=$(echo ${soc} | awk '{print toupper($0)}')
             [ "$(echo ${soc_maj} | grep -c ${supported})" -ne 1 ] && continue
+
             dtb_by_soc=""
             for devicetree in ${dtb}; do
                 [ "$(echo ${devicetree} | grep -c ${soc})" -eq 1 ] && dtb_by_soc="${dtb_by_soc} ${devicetree}.dts"
+                # Set soc_package
+                soc_package=$(echo ${devicetree} | cut -d'-' -f1 | awk '{print substr($0,length,1)}')
             done
             echo "flavor_dts_file-${supported}-CUBEMX = ${dtb_by_soc}" >> ${WORKDIR}/conf.external_dt
-
-            # add platform specific: package (with crypto or not), ddr size, HUK for mp15
-            if ${@bb.utils.contains_any('CUBEMX_SOC_PACKAGE',[ 'C', 'F' ],'true','false',d)}; then
-                echo "flavorlist-no_cryp = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
+            if [ "${soc}" = "stm32mp13" ] || [ "${soc}" = "stm32mp15" ]; then
+                # Configure SOC PACKAGE (MP13 and MP15 only):
+                #   - a: no crypt
+                #   - c: crypt
+                #   - d: no crypt, performance
+                #   - f: crypt, performance
+                if [ "${soc_package}" = "a" ] || [ "${soc_package}" = "d" ]; then
+                    echo "flavorlist-no_cryp = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
+                fi
             fi
+            # Configure platform specific ddr size
             case ${CUBEMX_BOARD_DDR_SIZE} in
-            512)
-                echo "flavorlist-512M = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
-                ;;
-            1024)
-                echo "flavorlist-1G = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
-                ;;
-            *)
-                ;;
+                512)
+                    echo "flavorlist-512M = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
+                    ;;
+                1024)
+                    echo "flavorlist-1G = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
+                    ;;
+                *)
+                    ;;
             esac
             if ${@bb.utils.contains('MACHINE_FEATURES','m33td','true','false',d)}; then
                 echo "flavorlist-M33-TDCID = \$(flavor_dts_file-${supported}-CUBEMX)" >> ${WORKDIR}/conf.external_dt
