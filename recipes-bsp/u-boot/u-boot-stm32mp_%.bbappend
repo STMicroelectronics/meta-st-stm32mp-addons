@@ -8,10 +8,13 @@ SOC_UBOOT_CONFIG_SUPPORTED = "CONFIG_STM32MP13X CONFIG_STM32MP15X CONFIG_STM32MP
 # Generate Makefile for usage of EXTERNAL DT with cubemx devicetree
 # ------------------------------------------------
 autogenerate_makefile_for_external_dt_cubemx() {
-    [ "${ENABLE_CUBEMX_DTB}" -ne 1 ] && return;
+    [ "${ENABLE_CUBEMX_DTB}" -ne 1 ] && return
+    [ "${CUBEMX_EXTDT_ENABLE_MK}" -ne 1 ] && return
+
     if [ -e "${STAGING_EXTDT_DIR}/${EXTDT_DIR_UBOOT}/Makefile" ]; then
         [ "${CUBEMX_EXTDT_FORCE_MK}" -ne 1 ] && return
     fi
+
     echo "# SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)" > ${WORKDIR}/Makefile.external_dt
     echo "" >>  ${WORKDIR}/Makefile.external_dt
 

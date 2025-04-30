@@ -33,10 +33,13 @@ ST_OPTEE_EXPORT_TA_OEMAKE_EXTRA:stm32mpcommonmx = "CFG_EXT_DTS=${STAGING_EXTDT_D
 # Generate optee conf for usage of EXTERNAL DT with cubemx devicetree
 # ------------------------------------------------
 autogenerate_conf_for_external_dt_cubemx() {
-    [ "${ENABLE_CUBEMX_DTB}" -ne 1 ] && return;
+    [ "${ENABLE_CUBEMX_DTB}" -ne 1 ] && return
+    [ "${CUBEMX_EXTDT_ENABLE_MK}" -ne 1 ] && return
+
     if [ -e "${STAGING_EXTDT_DIR}/${EXTDT_DIR_OPTEE}/conf.mk" ]; then
         [ "${CUBEMX_EXTDT_FORCE_MK}" -ne 1 ] && return
     fi
+
     echo "# SPDX-License-Identifier: BSD-2-Clause" > ${WORKDIR}/conf.external_dt
     echo "" >>  ${WORKDIR}/conf.external_dt
 
