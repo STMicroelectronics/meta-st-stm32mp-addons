@@ -3,3 +3,8 @@ inherit cubemx-stm32mp
 # Disable CubeMX device tree file check in source as already managed on
 # tf-m-stm32mp do_compile tasks
 ENABLE_CUBEMX_DTB_CHK = "0"
+
+# Configure device tree file extension
+BL2_TYPE    = ""
+DTS_TYPE_NS = "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', '', '-ns', d)}"
+DTS_TYPE_S  = "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', '', '-s', d)}"
