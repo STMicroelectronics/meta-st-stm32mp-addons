@@ -45,6 +45,12 @@ STM32MP_DT_FILES_SDCARD    += "${CUBEMX_DTB}"
 STM32MP_DT_FILES_SPINAND   += "${CUBEMX_DTB}"
 
 # =========================================================================
+# U-BOOT extlinux.conf
+# =========================================================================
+# Set the devicetree to load to boot
+UBOOT_EXTLINUX_FDT = "/${CUBEMX_DTB}.dtb"
+
+# =========================================================================
 # Machine features (default for stm32mp1 like)
 # =========================================================================
 MACHINE_FEATURES += "splashscreen"

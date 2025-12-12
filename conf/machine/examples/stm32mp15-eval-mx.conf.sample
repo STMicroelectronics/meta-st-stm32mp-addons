@@ -52,6 +52,12 @@ MACHINE_FEATURES += "${@'gpu' if d.getVar('ACCEPT_EULA_'+d.getVar('MACHINE')) ==
 MACHINE_FEATURES += "m4copro"
 
 # =========================================================================
+# U-BOOT extlinux.conf
+# =========================================================================
+# Set the devicetree to load to boot
+UBOOT_EXTLINUX_FDT = "/${CUBEMX_DTB}.dtb"
+
+# =========================================================================
 # Flashlayout
 # =========================================================================
 # Set the FLASHLAYOUT_TYPE_LABELS for 'extensible' to CUBEMX_DTB
