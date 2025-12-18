@@ -45,12 +45,6 @@ STM32MP_DT_FILES_SDCARD    += "${CUBEMX_DTB}"
 STM32MP_DT_FILES_SPINAND   += "${CUBEMX_DTB}"
 
 # =========================================================================
-# U-BOOT extlinux.conf
-# =========================================================================
-# Set the devicetree to load to boot
-UBOOT_EXTLINUX_FDT = "/${CUBEMX_DTB}.dtb"
-
-# =========================================================================
 # Machine features (default for stm32mp1 like)
 # =========================================================================
 MACHINE_FEATURES += "splashscreen"
@@ -63,6 +57,12 @@ MACHINE_FEATURES += "${@'gpu' if d.getVar('ACCEPT_EULA_'+d.getVar('MACHINE')) ==
 FIP_BL31_ENABLE = "1"
 
 # =========================================================================
+# U-BOOT extlinux.conf
+# =========================================================================
+# Set the devicetree to load to boot
+UBOOT_EXTLINUX_FDT = "/${CUBEMX_DTB}.dtb"
+
+# =========================================================================
 # Flashlayout
 # =========================================================================
 # Set the FLASHLAYOUT_TYPE_LABELS for 'extensible' to CUBEMX_DTB
@@ -73,6 +73,14 @@ FLASHLAYOUT_TYPE_LABELS:extensible = "${CUBEMX_DTB}"
 # ==========================================================================
 # Set M33_TZ configuration
 M33PROJECT_TF_M_TRUSTZONE = "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', '0', '${CUBEMX_M33_TZ}', d)}"
+
+# ==========================================================================
+# M33 Firmware
+# ==========================================================================
+# Set M33FW_BOARDS config for CubeMX project
+M33FW_BOARDS = "cubemx"
+# Set M33FW_BUILDCONF to enable specific build options
+M33FW_BUILDCONF = "cubemx"
 
 # =========================================================================
 # CubeMX extra config
@@ -102,6 +110,7 @@ BOOTDEVICE_LABELS += "sdcard"
 # Define the features to enable on board
 #MACHINE_FEATURES += "bluetooth"
 #MACHINE_FEATURES += "wifi"
+#MACHINE_FEATURES += "m33copro"
 MACHINE_FEATURES += "m33td"
 
 # Specific firmwares and kernel modules configuration
@@ -123,4 +132,13 @@ CUBEMX_PROJECT = "mx/my-demo"
 CUBEMX_PROJECT_NAME = "my-demo"
 
 # Indicate if M33 co-processor is used with Trustzone enabled or not
-CUBEMX_M33_TZ = "0"
+CUBEMX_M33_TZ = "1"
+
+# Configuration with m33fw MACHINE_FEATURES
+# =========================================================================
+# Set M33FW_BUILDCONF specific build options if any
+M33FW_BUILDCONF[cubemx] = "-DBUILD_CONFIG=MINIMUM"
+# Set M33FW_FIRMWARE config with project path and M33FW_BUILDCONF enabled
+M33FW_FIRMWARE[cubemx] = "<project_path>,cubemx"
+# Set M33FW default project
+M33FW_DEFAULT_FIRMWARE[cubemx] = "<project_basename>_cubemx"
