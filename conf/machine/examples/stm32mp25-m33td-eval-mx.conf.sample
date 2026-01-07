@@ -142,3 +142,7 @@ M33FW_BUILDCONF[cubemx] = "-DBUILD_CONFIG=MINIMUM"
 M33FW_FIRMWARE[cubemx] = "<project_path>,cubemx"
 # Set M33FW default project
 M33FW_DEFAULT_FIRMWARE[cubemx] = "<project_basename>_cubemx"
+# Set TF-M platform path
+M33FW_TFM_PLATFORM[cubemx] = "${CUBEMX_PROJECT}/PlatformTF-M"
+# Set TF-M platform extra opts
+M33FW_TFM_OPTFLAGS[cubemx] = ""
