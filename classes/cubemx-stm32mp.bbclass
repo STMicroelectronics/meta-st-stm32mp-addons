@@ -40,6 +40,7 @@ EXTDT_DIR_LINUX:stm32mp2commonmx  = "CA35/DeviceTree/${CUBEMX_PROJECT_NAME}/kern
 
 EXTDT_DIR_MCU:stm32mpcommonmx  = "CM33/DeviceTree/${CUBEMX_PROJECT_NAME}/mcuboot"
 EXTDT_DIR_TF_M:stm32mpcommonmx = "CM33/DeviceTree/${CUBEMX_PROJECT_NAME}/tf-m"
+EXTDT_DIR_TF_M_PLTF:stm32mpcommonmx = "CM33/PlatformTF-M"
 
 # Configure makefile generation for external device tree file
 CUBEMX_EXTDT_ENABLE_MK ??= "0"

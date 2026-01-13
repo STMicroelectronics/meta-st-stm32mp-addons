@@ -81,6 +81,14 @@ M33PROJECT_TF_M_TRUSTZONE = "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', '
 M33FW_BOARDS = "cubemx"
 # Set M33FW_BUILDCONF to enable specific build options
 M33FW_BUILDCONF = "cubemx"
+# Set M33FW_FIRMWARE config
+M33FW_FIRMWARE[cubemx] ?= "<project_path>,cubemx"
+# Set M33FW default project
+M33FW_DEFAULT_FIRMWARE[cubemx] ?= "<project_basename>_cubemx"
+# Set TF-M platform path
+M33FW_TFM_PLATFORM[cubemx] ?= "${EXTDT_DIR_TF_M_PLTF}"
+# Set TF-M platform extra opts
+M33FW_TFM_OPTFLAGS[cubemx] ?= ""
 
 # =========================================================================
 # CubeMX extra config
@@ -142,7 +150,3 @@ M33FW_BUILDCONF[cubemx] = "-DBUILD_CONFIG=MINIMUM"
 M33FW_FIRMWARE[cubemx] = "<project_path>,cubemx"
 # Set M33FW default project
 M33FW_DEFAULT_FIRMWARE[cubemx] = "<project_basename>_cubemx"
-# Set TF-M platform path
-M33FW_TFM_PLATFORM[cubemx] = "${CUBEMX_PROJECT}/PlatformTF-M"
-# Set TF-M platform extra opts
-M33FW_TFM_OPTFLAGS[cubemx] = ""
