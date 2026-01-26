@@ -79,12 +79,10 @@ M33PROJECT_TF_M_TRUSTZONE = "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', '
 # ==========================================================================
 # Set M33FW_BOARDS config for CubeMX project
 M33FW_BOARDS = "cubemx"
-# Set M33FW_BUILDCONF to enable specific build options
-M33FW_BUILDCONF = "cubemx"
 # Set M33FW_FIRMWARE config
-M33FW_FIRMWARE[cubemx] ?= "<project_path>,cubemx"
+M33FW_FIRMWARE[cubemx] ?= "CM33/NonSecure,${CUBEMX_PROJECT_NAME}"
 # Set M33FW default project
-M33FW_DEFAULT_FIRMWARE[cubemx] ?= "<project_basename>_cubemx"
+M33FW_DEFAULT_FIRMWARE[cubemx] ?= "${CUBEMX_PROJECT_NAME}"
 # Set TF-M platform path
 M33FW_TFM_PLATFORM[cubemx] ?= "${EXTDT_DIR_TF_M_PLTF}"
 # Set TF-M platform extra opts
@@ -144,9 +142,7 @@ CUBEMX_M33_TZ = "1"
 
 # Configuration with m33fw MACHINE_FEATURES
 # =========================================================================
-# Set M33FW_BUILDCONF specific build options if any
-M33FW_BUILDCONF[cubemx] = "-DBUILD_CONFIG=MINIMUM"
-# Set M33FW_FIRMWARE config with project path and M33FW_BUILDCONF enabled
-M33FW_FIRMWARE[cubemx] = "<project_path>,cubemx"
+# Set M33FW_FIRMWARE config with project path and name
+M33FW_FIRMWARE[cubemx] = "my-m33td-ns-app-demodir,my-m33td-ns-app"
 # Set M33FW default project
-M33FW_DEFAULT_FIRMWARE[cubemx] = "<project_basename>_cubemx"
+M33FW_DEFAULT_FIRMWARE[cubemx] = "my-m33td-ns-app"
