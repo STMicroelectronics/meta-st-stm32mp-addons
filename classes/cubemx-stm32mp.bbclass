@@ -47,6 +47,9 @@ CUBEMX_EXTDT_ENABLE_MK ??= "0"
 # Do not force make file generation on recipe side when file already available
 CUBEMX_EXTDT_FORCE_MK ??= "0"
 
+# Apply default M33 firmware configuration for CubeMX without Trustzone
+M33FW_CONFIG += "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', '', bb.utils.contains('CUBEMX_M33_TZ', '0', 'm33copro', '', d), d)}"
+
 def cubemx_search(dirs, d):
     """
     Manage CubeMX files location by looking for CubeMX project thanks to BBPATH
