@@ -77,16 +77,18 @@ M33PROJECT_TF_M_TRUSTZONE = "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', '
 # ==========================================================================
 # M33 Firmware
 # ==========================================================================
+# Configure m33 service copro startup for CubeMX project
+M33_BOARDS_START_AT_STARTUP ?= "${CUBEMX_DTB}"
 # Set M33FW_BOARDS config for CubeMX project
-M33FW_BOARDS = "cubemx"
+M33FW_BOARDS = "stm32mp25"
 # Set M33FW_FIRMWARE config
-M33FW_FIRMWARE[cubemx] ?= "CM33/NonSecure,${CUBEMX_PROJECT_NAME}"
+M33FW_FIRMWARE[stm32mp25] ?= "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', 'CM33/NonSecure,${CUBEMX_PROJECT_NAME}', 'Projects/${CUBEMX_PROJECT_NAME}/Demonstrations/USBPD_DRP_UCSI,USBPD_DRP_UCSI', d)}"
 # Set M33FW default project
-M33FW_DEFAULT_FIRMWARE[cubemx] ?= "${CUBEMX_PROJECT_NAME}"
+M33FW_DEFAULT_FIRMWARE[stm32mp25] ?= "${@bb.utils.contains('MACHINE_FEATURES', 'm33td', '${CUBEMX_PROJECT_NAME}', 'USBPD_DRP_UCSI', d)}"
 # Set TF-M platform path
-M33FW_TFM_PLATFORM[cubemx] ?= "${EXTDT_DIR_TF_M_PLTF}"
+M33FW_TFM_PLATFORM[stm32mp25] ?= "${EXTDT_DIR_TF_M_PLTF}"
 # Set TF-M platform extra opts
-M33FW_TFM_OPTFLAGS[cubemx] ?= ""
+M33FW_TFM_OPTFLAGS[stm32mp25] ?= ""
 
 # =========================================================================
 # CubeMX extra config
@@ -143,6 +145,6 @@ CUBEMX_M33_TZ = "1"
 # Configuration with m33fw MACHINE_FEATURES
 # =========================================================================
 # Set M33FW_FIRMWARE config with project path and name
-M33FW_FIRMWARE[cubemx] = "my-m33td-ns-app-demodir,my-m33td-ns-app"
+M33FW_FIRMWARE[stm32mp25] = "my-m33td-ns-app-demodir,my-m33td-ns-app"
 # Set M33FW default project
-M33FW_DEFAULT_FIRMWARE[cubemx] = "my-m33td-ns-app"
+M33FW_DEFAULT_FIRMWARE[stm32mp25] = "my-m33td-ns-app"
